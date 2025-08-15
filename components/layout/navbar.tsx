@@ -9,6 +9,7 @@ import { navigation } from "@/constants";
 import Button from "../atoms/button";
 import MenuSvg from "../svg/menu-svg";
 import { HamburgerMenu } from "../design/navbar";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
@@ -47,6 +48,10 @@ const Navbar = (props: Props) => {
     setOpenNavigation(false);
   };
 
+  const n = useRouter();
+  const handleNavigateHomePage = () => {
+    n.push("/");
+  }
   return (
     <div
       className={cn(
@@ -55,13 +60,14 @@ const Navbar = (props: Props) => {
       )}
     >
       <div className={cn(`flex items-center px-5 max-lg:py-4 lg:px-7.5 xl:px-10`)}>
-        <Link
-          href="/"
+        <div
+          onClick={handleNavigateHomePage}
           className={cn(`flex gap-2 items-center text-xl font-bold xl:mr-8 text-[#B500A5]`)}
         >
+
           <img src={'/marketing-agency-for-startups/waylogo.png'} className="w-[80px] h-[80px]" alt="waylogo" />
           The Nexaim
-        </Link>
+        </div>
 
         <nav
           className={cn(

@@ -9,6 +9,7 @@ import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
 import { images } from "@/constants";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
     title: 'Social Media Marketing Agency in Pakistan - Digital Marketing Expert in Pakistan',
@@ -58,7 +59,6 @@ export default function Home() {
             text: "Customized digital marketing plans for your unique goals.",
             backgroundUrl: "/assets/benefits/card-2.svg",
             light: true,
-            imageUrl: "/assets/images/seo-benefit-2.jpg",
         },
         {
             id: 4,
@@ -162,42 +162,107 @@ export default function Home() {
     ];
 
     const faqsubtitle = " Get answers to the most common questions about our  digital marketing services"
+    const productSchema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Nexaim: Digital Marketing Expert in Karachi - Social Media Marketing Agency in Pakistan",
+        "image": "https://thenexaim.com/_next/image?url=%2Fassets%2FDigital_Marketing.jpg&w=640&q=75",
+        "description": "Nexaim is a leading marketing company in Pakistan, recognized for excellence as a social media marketing agency. We provide professional PPC and social media management services in Karachi, including Meta advertising, LinkedIn page management, Instagram and Facebook posting, and profile optimization.",
+        "brand": "The Nexaim",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "4.9",
+            "ratingCount": "22"
+        }
+    };
 
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "The Nexaim: Digital Marketing Expert in Karachi - Social Media Marketing Agency in Pakistan",
+        "description": "Nexaim is a leading marketing company in Pakistan, recognized for excellence as a social media marketing agency. We provide professional PPC and social media management services in Karachi, including Meta advertising, LinkedIn page management, Instagram and Facebook posting, and profile optimization.",
+        "provider": {
+            "@type": "Organization",
+            "name": "The Nexaim",
+            "url": "https://thenexaim.com/affordable-digital-marketing-services-in-pakistan",
+            "logo": "",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "03432469633",
+                "contactType": "Customer Service",
+                "areaServed": "PAK, KHI",
+                "availableLanguage": ["English"]
+            }
+        },
+        "areaServed": {
+            "@type": "Place",
+            "name": "PAK"
+        },
+        "serviceType": "digital marketing expert in pakistan, social media marketing agencies in pakistan, social media marketing agency in pakistan, social media marketing agency, social media agency, best marketing company in pakistan, digital marketing company in pakistan, Meta advertisement, facebook and instagram advertisement",
+        "category": "Digital Marketing",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PKR",
+            "price": "$",
+            "eligibleRegion": {
+                "@type": "Place",
+                "name": "Pakistan"
+            },
+            "availability": "https://schema.org/InStock"
+        }
+    };
     return (
         <>
-
-            <main>
-                <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
-                    <Navbar />
-                    <ServiceHero content={heroData} />
-                    {/* <Benefits /> */}
-                    <ServiceBenefits
-                        sectionTitle="Why Choose Nexaim?
+            <Script
+                id="product-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(productSchema),
+                }}
+            />
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(serviceSchema),
+                }}
+            />
+            <body>
+                <main>
+                    <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
+                        <Navbar />
+                        <ServiceHero content={heroData} />
+                        {/* <Benefits /> */}
+                        <ServiceBenefits
+                            sectionTitle="Why Choose Nexaim?
 "
-                        benefits={benefitsData}
-                    />
-                    <ServicesSectionDetails
-                        heading="Best Digital Marketing Services at "
-                        title="Partner With Nexaim — Grow Your Business Online Today"
-                        subheading="Choosing Nexaim means choosing a reliable digital marketing agency committed to your success. Our team is ready to help you expand your reach, increase your leads, and grow your business the smart way — online.
-"
-                        gradientText="Nexiam"
-                        subtitle="At Nexaim, Our full-suite digital marketing services are tailored to help you dominate your niche and outshine your competition"
-                        description=""
-                        services={seoServices}
-                        primaryCta={{ text: "VIEW OUR PORTFOLIO", link: "https://wa.me/+923432469633" }}
+                            benefits={benefitsData}
+                        />
+                        <ServicesSectionDetails
+                            heading="Best Digital Marketing Services at "
+                            title="Partner With Nexaim — Grow Your Business Online Today"
+                            subheading="Choosing Nexaim means choosing a reliable digital marketing agency committed to your success. Our team is ready to help you expand your reach, increase your leads, and grow your business the smart way — online."
+                            gradientText="Nexiam"
+                            subtitle="At Nexaim, Our full-suite digital marketing services are tailored to help you dominate your niche and outshine your competition"
+                            description=""
+                            services={seoServices}
+                            primaryCta={{ text: "VIEW OUR PORTFOLIO", link: "https://wa.me/+923432469633" }}
 
-                    />;
-                    <FAQSection data={faqData} subtitle={faqsubtitle} />
-                    {/* <Collaboration />
+                        />;
+                        <FAQSection data={faqData} subtitle={faqsubtitle} />
+                        {/* <Collaboration />
         <Services /> */}
-                    {/* <Pricing /> */}
-                    {/* <Roadmap /> */}
-                    {/* <ContactForm /> */}
-                    <Footer />
-                </div>
-                <ButtonGradient />
-            </main>
+                        {/* <Pricing /> */}
+                        {/* <Roadmap /> */}
+                        {/* <ContactForm /> */}
+                        <Footer />
+                    </div>
+                    <ButtonGradient />
+                </main>
+
+            </body>
         </>
     );
 }

@@ -77,7 +77,6 @@ export default function Home() {
             text: "We blend creativity with proven digital marketing strategies.",
             backgroundUrl: "/assets/benefits/card-2.svg",
             light: true,
-            imageUrl: "/assets/images/seo-benefit-2.jpg",
         },
         {
             id: 4,

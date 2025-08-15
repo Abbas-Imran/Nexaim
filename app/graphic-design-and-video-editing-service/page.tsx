@@ -125,8 +125,6 @@ export default function Home() {
             title: " Logo Design & Branding:",
             text: "Unique logos and visual identity systems tailored to your business personality.",
             backgroundUrl: "/assets/benefits/card-1.svg",
-
-            imageUrl: "/assets/images/seo-benefit-2.jpg",
             light: true,
         },
         {
@@ -135,7 +133,6 @@ export default function Home() {
             text: "Scroll-stopping creatives for Instagram, Facebook, LinkedIn, and more.",
             backgroundUrl: "/assets/benefits/card-2.svg",
             light: true,
-            imageUrl: "/assets/images/seo-benefit-2.jpg",
         },
         {
             id: 4,

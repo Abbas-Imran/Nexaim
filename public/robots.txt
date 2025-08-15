@@ -1,5 +1,5 @@
-User-agent: * 
-Disallow:  
-Disallow: /cgi-bin/ 
-Disallow: /?fbclid=IwZXh0bgNhZW0CMTAAAR4N_n5s1bsoNZ9NmqQeyCCYPD8JPSWajqhi4GYDlW0Wa-BeDCsi_hIcLxcLkA_aem_6u2yOjoz-QgiclTLnHempQ/ 
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /?fbclid=IwZXh0bgNhZW0CMTAAAR4N_n5s1bsoNZ9NmqQeyCCYPD8JPSWajqhi4GYDlW0Wa-BeDCsi_hIcLxcLkA_aem_6u2yOjoz-QgiclTLnHempQ
+
 Sitemap: https://thenexaim.com//sitemap.xml 

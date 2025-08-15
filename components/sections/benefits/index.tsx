@@ -20,8 +20,8 @@ const Benefits = (props: Props) => {
   const isInView = useInView(ref, { once: true });
   const n = useRouter();
   return (
-    <Section id="features">
-      <div className="container relative z-[10]">
+    <Section >
+      <div id="features" className="container relative z-[10]">
         <Heading
           className="md:max-w-md lg:max-w-2xl z-[10] relative"
           title="Smart strategies, exceptional results"

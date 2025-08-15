@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
                         </span>
                     </h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                        Nexaim is your digital growth partner — hear what our clients say about their transformation journey
+                        Nexaim – Turning Ideas into Digital Impact — hear what our clients say about their transformation journey
                     </p>
                 </div>
 
@@ -108,10 +108,7 @@ export default function TestimonialsSection() {
                                 {/* Service Badge */}
                                 <div className="flex items-center gap-3 mb-4">
                                     <span className="text-2xl">{testimonial.icon}</span>
-                                    <span
-
-                                        className=" text-white text-[1.4rem] border-0"
-                                    >
+                                    <span className=" text-white text-[1.4rem] border-0">
                                         {testimonial.service}
                                     </span>
                                 </div>

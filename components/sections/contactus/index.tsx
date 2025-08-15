@@ -50,9 +50,9 @@ export default function ContactForm() {
   };
 
   return (
-    <Section id="contact-us" className="overflow-hidden">
+    <Section className="overflow-hidden">
       <Toaster position="top-right" />
-      <div className="container relative z-2">
+      <div id="contact-us" className="container relative z-2">
         <div className="relative mb-[6.5rem] hidden justify-center lg:flex">
           <Image
             src={images.smallSphere}

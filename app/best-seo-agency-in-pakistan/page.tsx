@@ -59,7 +59,6 @@ export default function Home() {
             text: "You’ll always know what’s happening behind the scenes. No jargon, just clear updates.",
             backgroundUrl: "/assets/benefits/card-2.svg",
             light: true,
-            imageUrl: "/assets/images/seo-benefit-2.jpg",
         },
         {
             id: 3,
