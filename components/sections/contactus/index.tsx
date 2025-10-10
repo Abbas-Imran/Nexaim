@@ -53,26 +53,13 @@ export default function ContactForm() {
     <Section className="overflow-hidden">
       <Toaster position="top-right" />
       <div id="contact-us" className="container relative z-2">
-        <div className="relative mb-[6.5rem] hidden justify-center lg:flex">
-          <Image
-            src={images.smallSphere}
-            className="relative z-1"
-            width={255}
-            height={255}
-            alt="small sphere"
-          />
 
-          <div className="pointer-events-none absolute left-1/2 top-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2">
-            <Image src={images.stars} className="w-full" width={950} height={400} alt="stars" />
-          </div>
-        </div>
-
-        <Heading
-          tag="Get Started with Nexaim"
-          className="!text-white"
-          title="Transform once, impact forever—Nexaim is your digital growth partner"
-        />
-
+        <h2 className="text-4xl md:text-6xl font-bold text-white text-center my-10 leading-tight">
+          Get Started{" "}
+          <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            with Nexaim
+          </span>
+        </h2>
         <div className="relative max-w-lg m-auto">
           <div className="bg-conic-gradient rounded-xl p-[1px]">
             <Card className="w-full relative bg-n-8 backdrop-blur-xl border border-[#ffffff10]">

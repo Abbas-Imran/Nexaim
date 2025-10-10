@@ -10,6 +10,7 @@ import Button from "../atoms/button";
 import MenuSvg from "../svg/menu-svg";
 import { HamburgerMenu } from "../design/navbar";
 import { useRouter } from "next/navigation";
+import { div } from "framer-motion/client";
 
 type Props = {};
 
@@ -53,68 +54,82 @@ const Navbar = (props: Props) => {
     n.push("/");
   }
   return (
-    <div
-      className={cn(
-        `fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm`,
-        openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
-      )}
-    >
-      <div className={cn(`flex items-center px-5 max-lg:py-4 lg:px-7.5 xl:px-10`)}>
-        <div
-          onClick={handleNavigateHomePage}
-          className={cn(`flex gap-2 items-center text-xl font-bold xl:mr-8 text-[#B500A5]`)}
-        >
 
-          <img src={'/marketing-agency-for-startups/waylogo.png'} className="w-[80px] h-[80px]" alt="waylogo" />
-          The Nexaim
-        </div>
-
-        <nav
-          className={cn(
-            `fixed inset-x-0 bottom-0 top-20 hidden bg-n-8 lg:static lg:mx-auto lg:flex lg:bg-transparent`,
-            openNavigation ? "flex" : "hidden"
-          )}
-        >
+    <div className="fixed left-0 top-0 w-full z-50 p-1 ">
+      <div
+        className={cn(
+          `w-full   border-[1px] border-[#ce66c5] lg:backdrop-blur-sm`,
+          openNavigation ? "bg-white" : ""
+        )}
+      >
+        <div className={cn(`flex items-center px-5 max-lg:py-4 lg:px-7.5 xl:px-10`)}>
           <div
+            onClick={handleNavigateHomePage}
+            className={cn(`flex gap-2 items-center text-xl font-bold xl:mr-8 text-[#B500A5]`)}
+          >
+
+            <img src={'/marketing-agency-for-startups/waylogo.png'} className="w-[80px] h-[80px]" alt="waylogo" />
+            The Nexaim
+          </div>
+
+          <nav
             className={cn(
-              "relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row"
+              `fixed inset-x-0 bottom-0 top-20 hidden bg-n-8 lg:static lg:mx-auto lg:flex lg:bg-transparent`,
+              openNavigation ? "flex" : "hidden"
             )}
           >
-            {navigation.map((item) => (
-              <Link
-                key={item.id}
-                href={item.url}
-                onClick={handleClick}
-                className={cn(
-                  `block text-white relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1`,
-                  "px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold",
-                  item.onlyMobile && "lg:hidden",
-                  item.url === hash ? "z-2 lg:text-n-1" : "lg:text-n-1/50",
-                  "lg:leading-5 lg:hover:text-n-1 xl:px-12"
-                )}
-              >
-                {item.title}
-              </Link>
-            ))}
-          </div>
-          <HamburgerMenu />
-        </nav>
+            <div
+              className={cn(
+                "relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row"
+              )}
+            >
+              {navigation.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.url}
+                  onClick={handleClick}
+                  className={cn(
+                    `block relative font-code uppercase tracking-wide `,
+                    "px-6 py-6 md:py-8 lg:-mr-0.25",
+                    item.onlyMobile && "lg:hidden",
+                    // Font size + weight adjustments
+                    "text-[1.4rem] md:text-[1.6rem] lg:text-[1.2rem] font-extrabold",
+                    // Active + hover styles
+                    item.url === hash
+                      ? "text-white border-b-[3px] border-[#B500A5]"
+                      : "text-white/80 hover:text-[#B500A5]",
+                    "lg:leading-6 xl:px-12"
+                  )}
+                >
+                  {/* Underline animation effect */}
+                  <span className="relative group">
+                    {item.title}
+                    <span className="absolute left-0 bottom-0 w-0 h-[3px] bg-[#B500A5] transition-all duration-300 group-hover:w-full"></span>
+                  </span>
+                </Link>
+              ))}
 
-        <Link
-          href="mailto:thenexaim@gmail.com"
-          className="button mr-8 hidden text-n-1/50 transition-colors hover:text-n-1 lg:block"
-        >
-          Email Us
-        </Link>
-        <Button className="hidden lg:flex" href="https://wa.me/+923432469633">
-          Chat Us
-        </Button>
+            </div>
+            <HamburgerMenu />
+          </nav>
 
-        <Button className="ml-auto lg:hidden" px="px-3" onClick={toggleNavigation}>
-          <MenuSvg openNavigation={openNavigation} />
-        </Button>
+          <Link
+            href="mailto:thenexaim@gmail.com"
+            className="button mr-8 hidden text-n-1/50 transition-colors  hover:text-n-1 lg:block"
+          >
+            Email Us
+          </Link>
+
+          <a target="_blank" href="https://wa.me/+923432469633" className="relative hidden lg:inline-flex  items-center justify-center border-[1px] border-[#ce66c5] px-5 py-2 overflow-hidden font-semibold text-white rounded-2xl bg-transparent"
+          >CHAT US</a>
+
+
+          <Button className="ml-auto lg:hidden" px="px-3" onClick={toggleNavigation}>
+            <MenuSvg openNavigation={openNavigation} />
+          </Button>
+        </div>
       </div>
-    </div>
+    </div >
   );
 };
 

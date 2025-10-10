@@ -1,8 +1,15 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Star, Badge } from "lucide-react"
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Star, Badge } from "lucide-react";
+import Slider from "react-slick";
+import { motion } from "framer-motion";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// ✅ Testimonials data
 const testimonials = [
     {
         id: 1,
@@ -31,7 +38,7 @@ const testimonials = [
         service: "Digital Marketing",
         icon: "📲",
         quote:
-            "We were looking for the best social media marketing company to grow our brand, and we found Nexaim. Their team understood our audience, created engaging content, and delivered real results. Our reach, engagement, and sales have all gone up — highly recommended!",
+            "We were looking for the best social media marketing company to grow our brand, and we found Nexaim. Their team understood our audience, created engaging content, and delivered real results.",
         author: "Tahir Mehmood",
         location: "Karachi",
         role: "Restaurant Owner",
@@ -42,7 +49,7 @@ const testimonials = [
         service: "Web Development",
         icon: "🌐",
         quote:
-            "Nexaim is truly the best website design and development company we've worked with. They delivered a smart, fast, and mobile-friendly website that's modern, clean, and easy to navigate. The whole process was smooth, and the final result exceeded our expectations.",
+            "Nexaim delivered a smart, fast, and mobile-friendly website that's modern and clean. The whole process was smooth and exceeded expectations.",
         author: "Hina Waqar",
         location: "Islamabad",
         role: "Online Store Owner",
@@ -53,7 +60,7 @@ const testimonials = [
         service: "Podcast Production",
         icon: "🎙",
         quote:
-            "I only had the idea for a podcast — Nexaim handled everything else, from recording and editing to creating social clips. They made the entire process stress-free, and the quality was absolutely top-notch.",
+            "I only had the idea for a podcast — Nexaim handled everything else, from recording to editing. The quality was absolutely top-notch.",
         author: "Zainab Ali",
         location: "Rawalpindi",
         role: "Podcast Host",
@@ -64,17 +71,74 @@ const testimonials = [
         service: "SEO Optimization",
         icon: "🔍",
         quote:
-            "Our website wasn't showing on Google. I was looking for SEO experts in Karachi, and I found this digital marketing company. They started SEO work and I'm quite impressed with their results. Highly recommended!",
+            "Our website wasn't showing on Google. Nexaim started SEO work, and the results are great. Highly recommended!",
         author: "Farhan Saleem",
         location: "Gujranwala",
         role: "Service Business Owner",
         rating: 5,
     },
-]
+];
+
+// ✅ Custom Arrows
+const NextArrow = ({ onClick }: any) => (
+    <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={onClick}
+        className="absolute -right-8 top-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 shadow-lg hover:shadow-2xl transition-all"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="white"
+            className="h-6 w-6"
+        >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </motion.button>
+);
+
+const PrevArrow = ({ onClick }: any) => (
+    <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={onClick}
+        className="absolute -left-8 top-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 shadow-lg hover:shadow-2xl transition-all"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="white"
+            className="h-6 w-6"
+        >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+    </motion.button>
+);
 
 export default function TestimonialsSection() {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 700,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        responsive: [
+            { breakpoint: 1024, settings: { slidesToShow: 2 } },
+            { breakpoint: 768, settings: { slidesToShow: 1 } },
+        ],
+    };
+
     return (
-        <section className="min-h-screen  py-20 px-4 relative overflow-hidden">
+        <section className="min-h-screen py-20 px-4 relative overflow-hidden bg-gradient-to-b from-[#020617] to-[#0b0f1a]">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
             <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-20 blur-xl" />
@@ -93,59 +157,68 @@ export default function TestimonialsSection() {
                         </span>
                     </h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                        Discover how Nexaim has empowered businesses to innovate, grow,
-                        and achieve long-lasting impact through technology.
+                        Discover how Nexaim has empowered businesses to innovate, grow, and
+                        achieve long-lasting impact through technology.
                     </p>
                 </div>
 
+                {/* Slider */}
+                <div className="relative">
+                    <Slider {...settings}>
+                        {testimonials.map((testimonial) => (
+                            <div key={testimonial.id} className="px-3">
+                                <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group h-full">
+                                    <CardContent className="p-6">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <span className="text-2xl">{testimonial.icon}</span>
+                                            <span className="text-white text-[1.4rem] font-semibold">
+                                                {testimonial.service}
+                                            </span>
+                                        </div>
 
-                {/* Testimonials Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial) => (
-                        <Card
-                            key={testimonial.id}
-                            className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group"
-                        >
-                            <CardContent className="p-6">
-                                {/* Service Badge */}
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-2xl">{testimonial.icon}</span>
-                                    <span className=" text-white text-[1.4rem] border-0">
-                                        {testimonial.service}
-                                    </span>
-                                </div>
+                                        <div className="flex gap-1 mb-4">
+                                            {[...Array(testimonial.rating)].map((_, i) => (
+                                                <Star
+                                                    key={i}
+                                                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                                                />
+                                            ))}
+                                        </div>
 
-                                {/* Rating */}
-                                <div className="flex gap-1 mb-4">
-                                    {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                                    ))}
-                                </div>
+                                        <blockquote className="text-gray-200 text-sm mb-6 leading-relaxed">
+                                            "{testimonial.quote}"
+                                        </blockquote>
 
-                                {/* Quote */}
-                                <blockquote className="text-gray-200 text-sm mb-6 leading-relaxed">"{testimonial.quote}"</blockquote>
-
-                                {/* Author */}
-                                <div className="border-t border-white/10 pt-4">
-                                    <div className="font-semibold text-white">{testimonial.author}</div>
-                                    <div className="text-sm text-gray-400">{testimonial.role}</div>
-                                    <div className="text-xs text-cyan-400">{testimonial.location}</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    ))}
+                                        <div className="border-t border-white/10 pt-4">
+                                            <div className="font-semibold text-white">
+                                                {testimonial.author}
+                                            </div>
+                                            <div className="text-sm text-gray-400">
+                                                {testimonial.role}
+                                            </div>
+                                            <div className="text-xs text-cyan-400">
+                                                {testimonial.location}
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
 
-                {/* Call to Action */}
+                {/* CTA */}
                 <div className="text-center mt-16">
-                    <div className="inline-flex items-center gap-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-full lg:px-8 md:px-6 px-3 py-4">
-                        <span className="text-white lg:font-medium md:font-medium text-sm">Ready to transform your business?</span>
-                        <button className="bg-gradient-to-r from-cyan-400 to-purple-500 text-white lg:px-6 md:px-4 px-2 py-2 rounded-full lg:font-medium md:font-medium text-sm hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300">
+                    <div className="inline-flex items-center gap-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-full px-6 py-4">
+                        <span className="text-white text-sm md:text-base">
+                            Ready to transform your business?
+                        </span>
+                        <a href="https://wa.me/+923432469633" className="bg-gradient-to-r from-cyan-400 to-purple-500 text-white px-6 py-2 rounded-full font-medium text-sm hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300">
                             Get Started
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }

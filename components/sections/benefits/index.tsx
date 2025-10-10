@@ -4,82 +4,138 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import Section from "@/components/layout/section";
-import Heading from "../../atoms/heading";
-import { benefits } from "@/constants";
 import Image from "next/image";
 import Arrow from "@/components/svg/arrow";
-import { GradientLight } from "@/components/design/benefits";
-import ClipPath from "@/components/svg/clip-path";
-import { div } from "framer-motion/client";
-import style from "styled-jsx/style";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { benefits } from "@/constants";
 
-type Props = {};
+const NextArrow = (props: any) => {
+  const { onClick } = props;
+  return (
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className="absolute -right-6 top-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-[#B500A5] to-purple-600 shadow-lg hover:shadow-2xl transition-all"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="h-6 w-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </motion.button>
+  );
+};
 
-const Benefits = (props: Props) => {
+const PrevArrow = (props: any) => {
+  const { onClick } = props;
+  return (
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className="absolute -left-6 top-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-[#B500A5] shadow-lg hover:shadow-2xl transition-all"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="h-6 w-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </motion.button>
+  );
+};
+
+const Benefits = () => {
+  const sliderRef = React.useRef<Slider>(null);
+  const router = useRouter();
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
-  const n = useRouter();
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
+    ],
+  };
+
   return (
-    <Section >
-      <div id="features" className="container relative z-[10]">
-        <Heading
-          className="md:max-w-md lg:max-w-2xl mt-2 lg:mt-5 md:mt-3 z-[10] relative"
-          title="Smart strategies, exceptional results"
-          text="Stop wasting your time with outdated techniques — Nexaim takes care of the work and you focus on growth and development."
-        />
+    <Section>
+      {/* 🌈 Animated gradient background */}
+      <motion.div
+        className="absolute inset-0 -z-10 bg-gradient-to-br from-[#090017] via-[#25004A] to-[#4B007C] opacity-90"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          backgroundSize: "200% 200%",
+        }}
+      />
+
+      <div id="features" className="container relative z-[10] py-20">
+        <h2 className="text-4xl my-5 text-center md:text-6xl font-bold text-white mb-6 leading-tight">
+          <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+            Services We Offer
+          </span>
+        </h2>
 
         <div className="mb-10 flex flex-wrap gap-10" ref={ref}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Slider ref={sliderRef} {...settings} className="w-full">
             {benefits.map((item) => (
               <motion.div
-                onClick={() => n.push(item.url)}
                 key={item.id}
-                className="relative cursor-pointer block bg-[length:100%_100%] bg-no-repeat p-0.5 md:max-w-sm"
-                style={{
-                  backgroundImage: `url(${item.backgroundUrl})`,
-                }}
+                onClick={() => router.push(item.url)}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8 }}
+                className="relative group cursor-pointer md:max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                <div className="relative z-[1000] flex min-h-[22rem] flex-col p-[2.4rem]">
-                  <h5 className="h5 mb-5 text-white">{item.title}</h5>
-                  <p className="body-2 mb-6 text-n-3">{item.text}</p>
+                {/* Card gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#1c1c1c]/90 via-[#2a2a2a]/80 to-[#B500A5]/60 opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Background image */}
+                {item.imageUrl && (
+                  <Image
+                    src={item.imageUrl}
+                    width={380}
+                    height={362}
+                    alt={item.title}
+                    className="absolute inset-0 size-full object-cover opacity-30 group-hover:opacity-40 transition duration-500"
+                  />
+                )}
+
+                {/* Card content */}
+                <div className="relative z-10 flex min-h-[22rem] flex-col p-8">
+                  <h5 className="text-xl font-extrabold mb-4 text-white group-hover:text-[#B500A5] transition-colors duration-300">
+                    {item.title}
+                  </h5>
+                  <p className="text-sm mb-6 text-gray-300 text-[1rem] leading-relaxed">{item.text}</p>
                   <Link
                     href={item.url}
-                    className="mt-auto flex items-center relative z-[10000]"
+                    className="mt-auto flex items-center text-sm font-semibold text-[#B500A5] group-hover:text-white transition-colors duration-300"
                   >
-                    <div className="ml-auto font-code text-xs font-bold uppercase tracking-wider cursor-pointer text-n-1">
-                      Learn More
-                    </div>
-                    <Arrow />
+                    Learn More
+                    <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
+                      <Arrow />
+                    </span>
                   </Link>
                 </div>
 
-                {item.light && <GradientLight />}
-
-                <div
-                  className="absolute inset-0.5 bg-n-8 -z-10"
-                  style={{ clipPath: `url(#benefits)` }}
-                >
-                  <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
-                    {item.imageUrl && (
-                      <Image
-                        src={item.imageUrl}
-                        width={380}
-                        height={362}
-                        alt={item.title}
-                        className="size-full object-cover"
-                      />
-                    )}
-                  </div>
-                </div>
-
-                <ClipPath />
+                <div className="absolute inset-0 rounded-2xl border border-white/10 backdrop-blur-md"></div>
               </motion.div>
             ))}
-          </div>
-
+          </Slider>
         </div>
       </div>
     </Section>

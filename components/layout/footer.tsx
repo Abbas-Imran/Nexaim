@@ -72,6 +72,12 @@ const Footer = ({ className }: Props) => {
                     >
                       +92 343 2469633
                     </Link>
+                    <Link
+                      href="tel:+923432469633"
+                      className="font-medium text-neutral-200 underline-offset-4 hover:text-emerald-400 hover:underline"
+                    >
+                      {" "} +92 319 2665683
+                    </Link>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -98,14 +104,10 @@ const Footer = ({ className }: Props) => {
                 Ready to bring your next idea to life? Reach out and we&apos;ll respond within 1 business day.
               </p>
               <div>
-                <Button>
-                  <Link
-                    href="mailto:info@thenexaim.com?subject=Project%20inquiry"
+                <a target="_blank" href="mailto:info@thenexaim.com?subject=Project%20inquiry" className="relative hidden lg:inline-flex  items-center justify-center border-[1px] border-[#ce66c5] px-5 py-2 overflow-hidden font-semibold text-white rounded-2xl bg-transparent"
+                > Start a conversation</a>
 
-                  >
-                    Start a conversation
-                  </Link>
-                </Button>
+
               </div>
             </div>
           </div>

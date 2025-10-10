@@ -20,6 +20,7 @@
   body {
     @apply font-sans bg-n-8 text-n-1 text-base;
   }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -47,6 +48,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -143,10 +145,37 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
+.gradient-border {
+  border-radius: 10px;
+  opacity: .8;
+  border: 1px solid;
+  border-image: linear-gradient(90deg, #a78bfa, #ec4899) 1;
+}
+
+.bannerbackgroundimage {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url('/assets/Banner.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.aboutusbackground {
+  background-image: url('/assets/AboutUs.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
 
 .spin-transform {
   animation: spinning 1s linear infinite;

@@ -9,6 +9,7 @@ import Pricing from "@/components/sections/pricing";
 const TestimonialsSection = React.lazy(() => import("@/components/sections/testimoinal/Testimonial"));
 // import Roadmap from "@/components/sections/roadmap";
 import Services from "@/components/sections/services";
+import AboutUs from "@/components/sections/AboutUs";
 import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
@@ -175,12 +176,11 @@ export default function Home() {
             <Navbar />
             <Hero />
             <Benefits />
+            <AboutUs />
             <Collaboration />
-            <Services />
-            {/* <Pricing /> */}
-            {/* <Roadmap /> */}
-            <ContactForm />
             <TestimonialsSection />
+            <ContactForm />
+
             <Footer />
           </div>
           <ButtonGradient />

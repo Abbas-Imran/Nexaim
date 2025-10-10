@@ -1,113 +1,133 @@
-import React from "react";
-import Section from "@/components/layout/section";
-import { collabApps, collabContent, collabText, images } from "@/constants";
+"use client";
+
 import Image from "next/image";
-import Button from "@/components/atoms/button";
-import { cn } from "@/lib/utils";
-import { LeftCurve, RightCurve } from "@/components/design/collaboration";
-import { div } from "framer-motion/client";
-import ButtonGradient from "@/components/svg/button-gradient";
-import { Gradient } from "@/components/design/hero";
-import { GradientLight } from "@/components/design/benefits";
+import { motion } from "framer-motion";
+import { section } from "framer-motion/client";
 
-type Props = {};
+type prop = {};
 
-const Collaboration = (props: Props) => {
+const Collaboration = (Prop: prop) => {
+  // Animation Variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const staggerContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const industries = [
+    { name: "Education", img: "/assets/industries/Education.jpg" },
+    { name: "Fashion", img: "/assets/industries/Fashion.jpg" },
+    { name: "Food", img: "/assets/industries/FOOD.jfif" },
+    { name: "Hospital", img: "/assets/industries/Hospital.jpg" },
+    { name: "Start Up", img: "/assets/industries/Startup.jpeg" },
+    { name: "Technology", img: "/assets/industries/Technology.jpeg" },
+  ];
+
   return (
-    <div
-      id="collaboration"
-      style={{
-        // background: "url(/image.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* <Gradient /> */}
-      {/* <ButtonGradient /> */}
-      <div className="bg-gradient-to-b from-n-8/0 to-n-8/90 relative">
-        <Section className="z-2 relative" crosses>
-          {/* <GradientLight /> */}
-          <h2 className="h2 relative z-10 max-w-4xl m-auto max-md:mb-3 text-white text-center px-4">
-            Helping People Create Beautiful Content At
-          </h2>
-          <p className="body-2 relative z-10 mt-4 text-n-4 text-center lg:mx-auto lg:max-w-2xl font-light px-4">
-            {collabText}
-          </p>
-          <div className="container lg:flex">
-            <div className="max-w-[25rem]">
+    <section className="min-h-screen py-20 px-4 relative overflow-hidden bg-gradient-to-b from-[#020617] to-[#0b0f1a]">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
+      <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-20 blur-3xl" />
+      <div className="absolute bottom-40 left-10 w-24 h-24 bg-gradient-to-r from-pink-400 to-orange-500 rounded-full opacity-20 blur-2xl" />
 
-              <ul className="mb-10 max-w-[22rem] md:mb-3">
-                {collabContent.map((item) => (
-                  <li key={item.id} className="py-0">
-                    <div className="flex items-center py-4 justify-center">
-                      <Image
-                        className="transition-transform duration-300 ease-in-out hover:scale-105 "
-                        src={item.image}
-                        width={item.width}
-                        height={item.height}
-                        alt="check"
-                      />
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <motion.h2
+            variants={fadeLeft}
+            className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+          >
+            Industries{" "}
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              We Work With
+            </span>
+          </motion.h2>
 
-                    </div>
-                  </li>
-                ))}
-                <li className="py-0">
-                  <div className="flex items-center py-4 justify-center">
-                    <Button className="text-white md:mx-7 lg:mx-8" href="https://wa.me/+923432469633">
-                      Try it now
-                    </Button>
+          <motion.p
+            variants={fadeRight}
+            className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+          >
+            At{" "}
+            <span className="font-semibold text-cyan-400">Nexaim Digital Agency</span>,
+            we empower businesses worldwide with cutting-edge digital marketing
+            solutions. From startups to enterprises, we help brands{" "}
+            scale globally, attract
+            customers, and stay ahead of the competition.
+          </motion.p>
+        </motion.div>
 
-                  </div>
-                </li>
-              </ul>
-
-            </div>
-
-            <div className="lg:mt-[124px] md:mt-[124px] lg:ml-auto xl:w-[38rem]">
-              <div className="relative left-1/2 flex aspect-square w-[22rem] -translate-x-1/2 scale-75 rounded-full border border-[#B500A5] md:scale-100">
-                <div className="m-auto flex aspect-square w-60 rounded-full border border-[#B500A5]">
-                  <div className="m-auto aspect-square w-24 rounded-full bg-conic-gradient p-[0.2rem]">
-                    <div className="flex h-full items-center justify-center rounded-full bg-n-8">
-                      <Image src={images.nexiam} width={48} height={48} alt="brainwave" />
-                    </div>
-                  </div>
+        {/* Animated Grid */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12"
+        >
+          {industries.map((item, index) => (
+            <motion.div key={index} variants={fadeUp}>
+              <div className="relative flex flex-col gap-4 p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-2 transition-all duration-300">
+                <div className="relative overflow-hidden rounded-xl group">
+                  <Image
+                    src={item.img}
+                    className="h-48 w-full object-cover transform group-hover:scale-110 transition-transform duration-500 rounded-xl"
+                    width={400}
+                    height={200}
+                    alt={item.name}
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
                 </div>
 
-                <ul className="spin-transform" style={{ animationDuration: "4s" }}>
-                  {collabApps.map((item, index) => (
-                    <li
-                      key={item.id}
-                      className={cn(
-                        "absolute left-1/2 top-0 -ml-[1.6rem] h-1/2 origin-bottom",
-                        `rotate-${index * 45}`
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          "relative -top-[1.6rem] flex w-[3.2rem] h-[3.2rem] bg-n-7 border border-n-1/15 rounded-xl",
-                          `-rotate-${index * 45}`
-                        )}
-                      >
-                        <Image
-                          src={item.icon}
-                          alt={item.title}
-                          width={36}
-                          height={36}
-                          className="m-auto brightness-0 invert"
-                        />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-
-                <LeftCurve />
-                <RightCurve />
+                <div className="text-center">
+                  <p className="text-[1.75rem] font-bold uppercase bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent tracking-wide drop-shadow-sm">
+                    {item.name}
+                  </p>
+                  <p className="text-sm text-gray-400 mt-1">
+                    Transforming the {item.name.toLowerCase()} industry with digital innovation.
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-        </Section>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
