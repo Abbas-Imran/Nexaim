@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Badge } from "lucide-react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
-
+import { useMediaQuery } from "react-responsive";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -121,24 +121,28 @@ const PrevArrow = ({ onClick }: any) => (
 );
 
 export default function TestimonialsSection() {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+    const isDesktop = useMediaQuery({ minWidth: 1024 });
+
+    // Dynamically choose slidesToShow
+    const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
+
     const settings = {
         dots: true,
         infinite: true,
-        speed: 700,
         autoplay: true,
-        autoplaySpeed: 4000,
-        slidesToShow: 3,
+        autoplaySpeed: 2500,
+        speed: 600,
+        slidesToShow,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
-        responsive: [
-            { breakpoint: 1024, settings: { slidesToShow: 2 } },
-            { breakpoint: 768, settings: { slidesToShow: 1 } },
-        ],
     };
 
+
     return (
-        <section className="min-h-screen py-20 px-4 relative overflow-hidden bg-gradient-to-b from-[#020617] to-[#0b0f1a]">
+        <section className="py-8 px-4 relative overflow-hidden bg-gradient-to-b from-[#020617] to-[#0b0f1a]">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
             <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-20 blur-xl" />
@@ -208,7 +212,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* CTA */}
-                <div className="text-center mt-16">
+                <div className="text-center mt-5">
                     <div className="inline-flex items-center gap-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-full px-6 py-4">
                         <span className="text-white text-sm md:text-base">
                             Ready to transform your business?

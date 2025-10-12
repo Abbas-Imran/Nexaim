@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 const AboutUs = () => {
     return (
-        <div className="relative min-h-[65rem] w-full bg-gradient-to-b from-black/80 to-black/90 overflow-hidden">
+        <div id="collaboration" className="relative min-h-[65rem] w-full bg-gradient-to-b from-black/80 to-black/90 overflow-hidden">
             {/* Background Image */}
             <div className="aboutusbackground absolute inset-0 opacity-40"></div>
 
