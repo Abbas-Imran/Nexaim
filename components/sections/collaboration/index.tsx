@@ -47,7 +47,7 @@ const Collaboration = (Prop: prop) => {
   const industries = [
     { name: "Education", img: "/assets/industries/Education.jpg" },
     { name: "Fashion", img: "/assets/industries/Fashion.jpg" },
-    { name: "Food", img: "/assets/industries/FOOD.jfif" },
+    { name: "Food", img: "/assets/industries/FOOD.jpg" },
     { name: "Hospital", img: "/assets/industries/Hospital.jpg" },
     { name: "Start Up", img: "/assets/industries/Startup.jpeg" },
     { name: "Technology", img: "/assets/industries/Technology.jpeg" },

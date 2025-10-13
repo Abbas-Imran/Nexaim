@@ -101,7 +101,13 @@ const Benefits = () => {
                 transition={{ duration: 0.8 }}
                 className="relative group cursor-pointer md:max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#1c1c1c]/90 via-[#2a2a2a]/80 to-[#B500A5]/60 opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-32 right-10 w-40 h-40 bg-color-2/10 rounded-full blur-2xl"></div>
+                  <div className="absolute bottom-20 left-10 w-32 h-32 bg-color-4/15 rounded-full blur-xl"></div>
+                  <div className="absolute top-1/2 right-1/4 w-28 h-28 bg-color-6/20 rounded-full blur-lg"></div>
+                  <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-color-1/10 rounded-full blur-2xl"></div>
+                </div>
 
                 {item.imageUrl && (
                   <Image

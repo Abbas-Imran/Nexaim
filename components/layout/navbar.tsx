@@ -55,11 +55,11 @@ const Navbar = (props: Props) => {
   }
   return (
 
-    <div className="fixed left-0 top-0 w-full z-50 p-1 ">
+    <div className="fixed left-0 top-0 w-full z-50  ">
       <div
         className={cn(
-          `w-full  bg-black/80 border-[1px] border-[#ce66c5] lg:backdrop-blur-sm`,
-          openNavigation ? "bg-black/80" : "bg-black/80"
+          `w-full  bg-black  lg:backdrop-blur-sm`,
+          openNavigation ? "bg-black" : "bg-black"
         )}
       >
         <div className={cn(`flex items-center px-5 max-lg:py-4 lg:px-7.5 xl:px-10`)}>
