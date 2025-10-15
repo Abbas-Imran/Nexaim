@@ -62,7 +62,15 @@ const ServiceBenefits = ({ sectionTitle, benefits }: Props) => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <Heading className="md:max-w-md lg:max-w-2xl z-10 relative mb-16" title={sectionTitle} text="" />
+          <h2
+
+            className="text-center text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+          >
+
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              {sectionTitle}
+            </span>
+          </h2>
         </motion.div>
 
         <motion.div

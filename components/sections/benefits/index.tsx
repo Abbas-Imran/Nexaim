@@ -99,25 +99,26 @@ const Benefits = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8 }}
-                className="relative group cursor-pointer md:max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="relative border-2 border-[#db87d3] group cursor-pointer md:max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
 
                 <div className="absolute inset-0 overflow-hidden">
-                  <div className="absolute top-32 right-10 w-40 h-40 bg-color-2/10 rounded-full blur-2xl"></div>
-                  <div className="absolute bottom-20 left-10 w-32 h-32 bg-color-4/15 rounded-full blur-xl"></div>
-                  <div className="absolute top-1/2 right-1/4 w-28 h-28 bg-color-6/20 rounded-full blur-lg"></div>
-                  <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-color-1/10 rounded-full blur-2xl"></div>
+                  {/* <div className="absolute top-32 right-10 w-40 h-40 bg-color-2/10 rounded-full blur-2xl"></div> */}
+                  {/* <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#83567f] rounded-full blur-xl"></div> */}
+                  {/* <div className="absolute top-1/2 right-1/4 w-28 h-28 bg-color-6/20 rounded-full blur-lg"></div> */}
+                  {/* <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-color-1/10 rounded-full blur-2xl"></div> */}
                 </div>
 
-                {item.imageUrl && (
+                {/* {item.imageUrl && (
                   <Image
                     src={item.imageUrl}
                     width={380}
+                    
                     height={362}
                     alt={item.title}
                     className="absolute inset-0 size-full object-cover opacity-30 group-hover:opacity-40 transition duration-500"
                   />
-                )}
+                )} */}
 
                 <div className="relative z-10 flex min-h-[22rem] flex-col p-8">
                   <h5 className="text-xl font-extrabold mb-4 text-white group-hover:text-[#B500A5] transition-colors duration-300">

@@ -74,46 +74,7 @@ const ServiceHero = ({ content }: Props) => {
         </motion.div>
 
         {/* Video Area */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className={cn("relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-16")}
-        >
-          <div className={cn("relative z-1 rounded-2xl bg-conic-gradient shadow-lg")}>
-            <div className={cn("relative rounded-[1rem] pt-2 pb-2 px-1")}>
-              {/* Rounded corners and overflow moved to this div */}
-              <div
-              // className={cn(
-              //   "aspect-[688/470] overflow-hidden rounded-[1rem] md:aspect-[688/460] lg:aspect-[1024/460] px-1"
-              // )}
-              >
-                <Image
-                  alt=""
-                  src={content.image}
-                  width={400}
-                  height={300}
-                  className="w-full rounded-lg"
-                />
 
-
-
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute left-1/2 top-[-40%] w-[200%] -translate-x-1/2 md:top-[-35%] md:w-[138%] lg:top-[-90%]">
-            <Image
-              src={images.heroBackground}
-              width={1440}
-              height={1880}
-              className="w-full"
-              alt="hero"
-            />
-          </div>
-
-          <BackgroundCircles parallaxRef={parallaxRef} />
-        </motion.div>
       </div>
 
       <BottomLine />

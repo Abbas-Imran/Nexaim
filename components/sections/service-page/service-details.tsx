@@ -48,12 +48,27 @@ export default function ServicesSectionDetails({
       <div className="relative z-10 container py-16">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="h2 text-n-1 mb-6">
-            {heading}
-            <span className="block bg-gradient-to-r from-color-1 to-color-6 bg-clip-text text-transparent">
-              {gradientText}
-            </span>
-          </h2>
+          {
+            heading.trim() == "Our Website Development Services Include" ?
+              (
+                <h2
+
+                  className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+                >
+
+                  <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    {heading}
+                  </span>
+                </h2>
+              ) : <h2 className={`h2   text-n-1 mb-6`}>
+                {heading}
+                <span className="block bg-gradient-to-r from-color-1 to-color-6 bg-clip-text text-transparent">
+                  {gradientText}
+                </span>
+              </h2>
+          }
+
+
           <p className="body-1 text-n-3 max-w-4xl mx-auto mb-4">{subtitle}</p>
           <p className="body-2 text-n-4 max-w-3xl mx-auto">{description}</p>
         </div>
