@@ -7,6 +7,7 @@ import Image from "next/image"
 import Arrow from "@/components/svg/arrow"
 import { GradientLight } from "@/components/design/benefits"
 import ClipPath from "@/components/svg/clip-path"
+import Link from "next/link"
 
 export interface BenefitItem {
   id: number | string
@@ -58,19 +59,30 @@ const ServiceBenefits = ({ sectionTitle, benefits }: Props) => {
     <Section id="features">
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2
+          <h2 className="text-4xl  text-center md:text-6xl font-bold text-white mb-10 leading-tight">
 
-            className="text-center text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
-          >
+            {sectionTitle.split(" ").length > 4 ? (
+              <>
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  {sectionTitle.split(" ").slice(0, 4).join(" ")}
+                </span>
+                <br />
 
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {sectionTitle}
-            </span>
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-400  to-pink-400 bg-clip-text text-transparent">
+                  {sectionTitle.split(" ").slice(4).join(" ")}
+                </span>
+              </>
+            ) : (
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {sectionTitle}
+              </span>
+            )}
           </h2>
+
         </motion.div>
 
         <motion.div
@@ -110,7 +122,16 @@ const ServiceBenefits = ({ sectionTitle, benefits }: Props) => {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: index * 0.1 + 0.3 }}
                   >
-                    {item.title}
+                    {item.title.toLowerCase().includes("website") ? (
+                      <Link
+                        href="/web-design-and-development-services"
+                        className=" hover:underline"
+                      >
+                        {item.title}
+                      </Link>
+                    ) : (
+                      item.title
+                    )}
                   </motion.h3>
 
                   <motion.p

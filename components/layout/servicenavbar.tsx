@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { waylogo } from "@/public/assets/index";
 import { cn } from "@/lib/utils";
-import { servicenavigation } from "@/constants";
+import { servicenavigation, serviceDropdown } from "@/constants";
 import Button from "../atoms/button";
 import MenuSvg from "../svg/menu-svg";
 import { HamburgerMenu } from "../design/navbar";
@@ -17,7 +17,9 @@ type Props = {};
 const ServiceNavbar = (props: Props) => {
     const [hash, setHash] = useState<string>("hero");
     const [openNavigation, setOpenNavigation] = useState<boolean>(false);
+    const [openServices, setOpenServices] = useState<boolean>(false);
 
+    const toggleServices = () => setOpenServices(!openServices);
     useEffect(() => {
         const dynamicNavbarHighlight = () => {
             const sections = document.querySelectorAll("section[id]");
@@ -84,30 +86,85 @@ const ServiceNavbar = (props: Props) => {
                             )}
                         >
                             {servicenavigation.map((item) => (
-                                <Link
-                                    key={item.id}
-                                    href={item.url}
-                                    onClick={handleClick}
-                                    className={cn(
-                                        `block relative font-code uppercase tracking-wide `,
-                                        "px-6 py-6 md:py-8 lg:-mr-0.25",
-                                        item.onlyMobile && "lg:hidden",
-                                        // Font size + weight adjustments
-                                        "text-[1.4rem] md:text-[1.6rem] lg:text-[1.2rem] font-extrabold",
-                                        // Active + hover styles
-                                        item.url === hash
-                                            ? "text-white border-b-[3px] border-[#B500A5]"
-                                            : "text-white/80 hover:text-[#B500A5]",
-                                        "lg:leading-6 xl:px-12"
+                                <div key={item.id} className="relative group">
+                                    {item.title === "Services" ? (
+                                        <>
+                                            <button
+                                                onClick={toggleServices}
+                                                className={cn(
+                                                    `block relative font-code uppercase tracking-wide`,
+                                                    "px-6 py-6 md:py-8 lg:-mr-0.25",
+                                                    item.onlyMobile && "lg:hidden",
+                                                    "text-[1.4rem] md:text-[1.6rem] lg:text-[1.2rem] font-extrabold",
+                                                    "text-white/80 hover:text-[#B500A5] lg:leading-6 xl:px-12",
+                                                    "flex items-center gap-2"
+                                                )}
+                                            >
+                                                <span className="relative group">
+                                                    {item.title}
+                                                    <span className="absolute left-0 bottom-0 w-0 h-[3px] bg-[#B500A5] transition-all duration-300 group-hover:w-full"></span>
+                                                </span>
+
+                                                {/* Down arrow icon */}
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    className={`w-4 h-4 transition-transform duration-300 ${openServices ? "rotate-180" : "rotate-0"}`}
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+
+                                            {/* Dropdown */}
+                                            <div
+                                                className={cn(
+                                                    // Desktop hover dropdown
+                                                    "absolute left-0 top-full hidden lg:group-hover:block bg-black/95 backdrop-blur-md rounded-lg mt-1 shadow-lg z-50 min-w-[220px]",
+                                                    // Mobile toggle dropdown
+                                                    openServices
+                                                        ? "block static bg-black/95 rounded-lg mt-2 w-full"
+                                                        : "hidden"
+                                                )}
+                                            >
+                                                {serviceDropdown.map((service) => (
+                                                    <Link
+                                                        key={service.title}
+                                                        href={service.url}
+                                                        onClick={handleClick}
+                                                        className="block px-6 py-3 text-white hover:bg-[#B500A5]/20 transition-colors whitespace-nowrap text-center lg:text-left"
+                                                    >
+                                                        {service.title}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <Link
+                                            href={item.url}
+                                            onClick={handleClick}
+                                            className={cn(
+                                                `block relative font-code uppercase tracking-wide`,
+                                                "px-6 py-6 md:py-8 lg:-mr-0.25",
+                                                item.onlyMobile && "lg:hidden",
+                                                "text-[1.4rem] md:text-[1.6rem] lg:text-[1.2rem] font-extrabold",
+                                                item.url === hash
+                                                    ? "text-white border-b-[3px] border-[#B500A5]"
+                                                    : "text-white/80 hover:text-[#B500A5]",
+                                                "lg:leading-6 xl:px-12"
+                                            )}
+                                        >
+                                            <span className="relative group">
+                                                {item.title}
+                                                <span className="absolute left-0 bottom-0 w-0 h-[3px] bg-[#B500A5] transition-all duration-300 group-hover:w-full"></span>
+                                            </span>
+                                        </Link>
                                     )}
-                                >
-                                    {/* Underline animation effect */}
-                                    <span className="relative group">
-                                        {item.title}
-                                        <span className="absolute left-0 bottom-0 w-0 h-[3px] bg-[#B500A5] transition-all duration-300 group-hover:w-full"></span>
-                                    </span>
-                                </Link>
+                                </div>
+
                             ))}
+
 
                         </div>
                         <HamburgerMenu />

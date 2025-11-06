@@ -34,7 +34,7 @@ const ServiceHero = ({ content }: Props) => {
 
   return (
     <Section
-      className={cn("pt-[12rem] -mt-[5.25rem]")}
+      className={cn("my-6 lg:my-12 md:my-8")}
       crosses
       crossesOffset="lg:translate-y-[5.25rem]"
       customPaddings
@@ -46,7 +46,7 @@ const ServiceHero = ({ content }: Props) => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-1 mx-auto mb-16 max-w-[62rem] text-center md:mb-20 lg:mb-24"
+          className="relative z-1 mx-auto   max-w-[62rem] text-center "
         >
           <h1 className="h1 mb-6 text-white">
             {content.heading}{" "}
@@ -68,16 +68,17 @@ const ServiceHero = ({ content }: Props) => {
             </p>
           ))}
 
-          <Button href={content.button.link} white>
-            {content.button.text}
-          </Button>
+          <a href="#" className="relative inline-flex lg:inline-flex  items-center justify-center border-[1px] border-[#ce66c5] px-5 py-2 overflow-hidden font-semibold text-white rounded-2xl bg-transparent"
+          >{content.button.text}</a>
+
+
         </motion.div>
 
         {/* Video Area */}
 
       </div>
 
-      <BottomLine />
+
     </Section>
   );
 };

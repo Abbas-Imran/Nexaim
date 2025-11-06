@@ -26,6 +26,101 @@ export const metadata: Metadata = {
 };
 export default function Home() {
 
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: "Top SEO Expert In Pakistan - SEO Services In Pakistan - The Nexaim",
+        image:
+            "https://thenexaim.com/_next/image?url=%2Fassets%2FSEO.jpg&w=640&q=75",
+        description:
+            "We offer professional SEO services in Karachi, Pakistan, designed to help businesses strengthen their online presence and reach targeted audiences. Our services include off-page SEO, on-page SEO, technical SEO, and content optimization. With expert strategies, we help businesses rank higher in AI-driven searches and secure top positions on Google’s first page.",
+        brand: "The Nexaim",
+        aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5",
+            bestRating: "5",
+            worstRating: "4.9",
+            ratingCount: "14",
+        },
+    };
+
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "SEO Expert in Karachi - SEO Agency in Pakistan",
+        description:
+            "Nexaim provides professional SEO services in Karachi, Pakistan. Our services include on-page SEO, off-page SEO, technical SEO, content optimization, and local SEO to help businesses rank higher on search engines and drive organic traffic.",
+        provider: {
+            "@type": "Organization",
+            name: "The Nexaim",
+            url: "https://thenexaim.com/best-seo-agency-in-pakistan",
+            contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "03432469633",
+                contactType: "Sales",
+                areaServed: "PAK, KHI",
+                availableLanguage: ["English"],
+            },
+        },
+        areaServed: { "@type": "Place", name: "PAK" },
+        serviceType:
+            "SEO expert in Pakistan, SEO agency in Pakistan, social media marketing agency in Pakistan, digital marketing company in Pakistan, Meta advertisement, Facebook ads, Instagram ads",
+        category: "Digital Marketing",
+        offers: {
+            "@type": "Offer",
+            priceCurrency: "PKR",
+            price: "$",
+            eligibleRegion: { "@type": "Place", name: "Pakistan" },
+            availability: "https://schema.org/InStock",
+        },
+    };
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+            {
+                "@type": "Question",
+                name: "What is SEO and why do I need it?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "SEO is Search Engine Optimization. It helps your website rank higher in search results, increasing traffic, leads, and sales. Without SEO, you miss one of the most cost-effective ways to grow your business online.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "What is the difference between SEO and AEO?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "SEO improves rankings in search engines. AEO (Answer Engine Optimization) focuses on optimizing content for voice search and featured snippets. Both are necessary in modern digital marketing.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "Do you provide local SEO services in Pakistan?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes, we specialize in local SEO in Karachi, Lahore, Islamabad, and other cities. We optimize Google Business Profile, local citations, and location-based SEO for maximum visibility.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "What makes you different from other SEO agencies in Pakistan?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "We deliver personalized SEO strategies, focused on real business results — traffic, conversions, and revenue. No copy-paste solutions. Data-driven approach + expert team.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "What is Content Optimization?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Content optimization ensures your content is relevant, structured, and engaging. It includes keyword strategy, readability improvement, and SEO formatting for better rankings.",
+                },
+            },
+        ],
+    };
     const heroData = {
         heading: "Best SEO Agency in",
         image: "/assets/SEO.jpg",
@@ -137,11 +232,23 @@ export default function Home() {
     const faqsubtitle = " Get answers to the most common questions about our SEO and digital marketing services";
     return (
         <html>
-            <head>
+            {/* <head>
                 <meta name="google-site-verification" content="rSmgiUi5hClwP2sfbwSV1xX0POJwTuw5IjXRyxhtECs" />
-            </head>
+            </head> */}
             <body>
                 <main>
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+                    />
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+                    />
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                    />
                     <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
                         <Navbar />
                         <ServiceHero content={heroData} />

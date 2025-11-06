@@ -84,11 +84,11 @@ const Benefits = () => {
       />
 
       <div id="features" className="container relative z-[10] py-20">
-        <h2 className="text-4xl my-5 text-center md:text-6xl font-bold text-white mb-6 leading-tight">
+        <h3 className="text-4xl my-5 text-center md:text-6xl font-bold text-white mb-6 leading-tight">
           <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
             Services We Offer
           </span>
-        </h2>
+        </h3>
 
         <div className="mb-10 flex flex-wrap gap-10" ref={ref}>
           <Slider ref={sliderRef} {...settings} className="w-full">
@@ -121,9 +121,9 @@ const Benefits = () => {
                 )} */}
 
                 <div className="relative z-10 flex min-h-[22rem] flex-col p-8">
-                  <h5 className="text-xl font-extrabold mb-4 text-white group-hover:text-[#B500A5] transition-colors duration-300">
+                  <h4 className="text-xl font-extrabold mb-4 text-white group-hover:text-[#B500A5] transition-colors duration-300">
                     {item.title}
-                  </h5>
+                  </h4>
                   <p className="text-sm mb-6 text-gray-300 text-[1rem] leading-relaxed">{item.text}</p>
                   <Link
                     href={item.url}

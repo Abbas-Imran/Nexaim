@@ -27,6 +27,7 @@ import { cn } from "@/lib/utils";
 import { images } from "@/constants";
 import { Metadata } from "next";
 import { main } from "framer-motion/client";
+import Script from "next/script";
 export const metadata: Metadata = {
     title: 'Nexaim Podcast Production | Full-Service Podcasting & Audio-Visual Content',
     description: 'Let Nexaim transform your podcast vision into high-impact audio and video content. From concept development, studio recording & editing to branding, social-media clipping, and distribution — we deliver polished episodes that boost audience engagement.',
@@ -174,11 +175,118 @@ export default function Home() {
 
     return (
         <html>
-            <head>
+            {/* <head>
                 <meta name="google-site-verification" content="rSmgiUi5hClwP2sfbwSV1xX0POJwTuw5IjXRyxhtECs" />
-            </head>
+            </head> */}
             <body>
                 <main>
+                    <Script
+                        id="product-schema-podcast"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org/",
+                                "@type": "Product",
+                                name: "Podcast and Video Editing Service - The Nexaim",
+                                description:
+                                    "The Nexaim offers professional podcast and video editing services including trimming, color grading, sound balancing, motion graphics, subtitles, and more — delivering broadcast-quality content for YouTubers, podcasters, and brands.",
+                                aggregateRating: {
+                                    "@type": "AggregateRating",
+                                    ratingValue: "5",
+                                    bestRating: "5",
+                                    worstRating: "4.9",
+                                    ratingCount: "33",
+                                },
+                            }),
+                        }}
+                    />
+                    <Script
+                        id="service-schema-podcast"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "Service",
+                                name: "Podcast and Video Editing Service - The Nexaim",
+                                description:
+                                    "Professional podcast and video editing service by The Nexaim, offering audio cleanup, color correction, subtitles, sound mastering, motion graphics, and full post-production for YouTubers, businesses, and creators.",
+                                provider: {
+                                    "@type": "Organization",
+                                    name: "The Nexaim",
+                                    url: "https://thenexaim.com/services/podcast-production",
+                                    logo: "https://thenexaim.com/marketing-agency-for-startups/waylogo.png",
+                                    contactPoint: {
+                                        "@type": "ContactPoint",
+                                        telephone: "03432469633",
+                                        contactType: "Sales",
+                                        areaServed: "PAK, KHI",
+                                        availableLanguage: ["English"],
+                                    },
+                                },
+                                areaServed: {
+                                    "@type": "Place",
+                                    name: "Pakistan",
+                                },
+                                serviceType:
+                                    "podcast editing, professional podcast editing, audio cleanup and mastering, noise reduction service, podcast sound design, podcast mixing and mastering, podcast production service, voice enhancement service, podcast intro and outro editing, podcast transcription and subtitling",
+                                category: "Podcast Production",
+                                offers: {
+                                    "@type": "Offer",
+                                    priceCurrency: "PKR",
+                                    price: "0",
+                                    eligibleRegion: {
+                                        "@type": "Place",
+                                        name: "Pakistan",
+                                    },
+                                    availability: "https://schema.org/InStock",
+                                },
+                            }),
+                        }}
+                    />
+                    <Script
+                        id="faq-schema-podcast"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "FAQPage",
+                                mainEntity: [
+                                    {
+                                        "@type": "Question",
+                                        name: "Do you offer video podcast services?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes, we provide complete video podcast editing including cuts, transitions, motion graphics, and subtitles — optimized for YouTube and social media platforms.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "How will people discover my podcast?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "We help optimize metadata, SEO, and create social media micro-content like reels and audiograms to grow your audience.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Can I monetize my podcast?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes, we assist with sponsorship partnerships, ads, affiliate monetization, and premium podcast strategy.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Do you provide ongoing support?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes — we offer weekly and monthly editing, publishing, analytics reporting, and social promotion support.",
+                                        },
+                                    },
+                                ],
+                            }),
+                        }}
+                    />
                     <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
                         <Navbar />
                         <ServiceHero content={heroData} />

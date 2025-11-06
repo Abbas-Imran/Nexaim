@@ -162,6 +162,13 @@ const {
   telegram,
   twitter,
 } = images;
+export const serviceDropdown = [
+  { title: "Web Development", url: "/web-design-and-development-services" },
+  { title: "Graphics Design and Video Editing", url: "/graphic-design-and-video-editing-service" },
+  { title: "Digital Marketing", url: "/affordable-digital-marketing-services-in-pakistan" },
+  { title: "SEO Optimization", url: "/best-seo-agency-in-pakistan" },
+  { title: "Podcast Production", url: "/services/podcast-production" },
+];
 
 export const navigation = [
   {
@@ -194,6 +201,7 @@ export const navigation = [
   {
     id: "5",
     title: "Chat Us",
+
     url: "https://wa.me/+923432469633",
     onlyMobile: true,
   },

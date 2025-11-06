@@ -255,11 +255,129 @@ export default function Home() {
 
     return (
         <html>
-            <head>
+            {/* <head>
                 <meta name="google-site-verification" content="rSmgiUi5hClwP2sfbwSV1xX0POJwTuw5IjXRyxhtECs" />
-            </head>
+            </head> */}
             <body>
                 <main>
+                    <Script
+                        id="product-schema"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org/",
+                                "@type": "Product",
+                                name: "Graphic Design Agency in Pakistan - Graphic Design Services - The Nexaim",
+                                description:
+                                    "The Nexaim offers graphic design and video editing services in Karachi, Pakistan, specializing in logos, banners, social media creatives, ad creatives, and more. We ensure high-quality visuals for startups and established businesses.",
+                                brand: "The Nexaim",
+                                aggregateRating: {
+                                    "@type": "AggregateRating",
+                                    ratingValue: "5",
+                                    bestRating: "5",
+                                    worstRating: "4.9",
+                                    ratingCount: "33",
+                                },
+                            }),
+                        }}
+                    />
+                    <Script
+                        id="service-schema"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "Service",
+                                name: "Graphic Design Agency in Pakistan - Graphic Design Services",
+                                description:
+                                    "We are a leading graphic design agency in Karachi, Pakistan, helping businesses enhance their online presence with branding logos, visiting cards, and social and game banners.",
+                                provider: {
+                                    "@type": "Organization",
+                                    name: "The Nexaim",
+                                    url: "https://thenexaim.com/graphic-design-and-video-editing-service",
+                                    logo: "https://thenexaim.com/marketing-agency-for-startups/waylogo.png",
+                                    contactPoint: {
+                                        "@type": "ContactPoint",
+                                        telephone: "03432469633",
+                                        contactType: "Sales",
+                                        areaServed: "PAK, KHI",
+                                        availableLanguage: ["English"],
+                                    },
+                                },
+                                areaServed: {
+                                    "@type": "Place",
+                                    name: "Pakistan",
+                                },
+                                serviceType:
+                                    "graphic design agency, graphic design services, graphic designing company in Pakistan, graphic design agency in Pakistan, graphic designing, logo designing, logo design service, advertisement posts, social media posts, gaming banners",
+                                category: "Graphic Design and Video Animation",
+                                offers: {
+                                    "@type": "Offer",
+                                    priceCurrency: "PKR",
+                                    price: "0",
+                                    eligibleRegion: {
+                                        "@type": "Place",
+                                        name: "Pakistan",
+                                    },
+                                    availability: "https://schema.org/InStock",
+                                },
+                            }),
+                        }}
+                    />
+                    <Script
+                        id="faq-schema"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "FAQPage",
+                                mainEntity: [
+                                    {
+                                        "@type": "Question",
+                                        name: "What industries do you serve?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "We work across sectors—fashion, tech, education, real estate, e-commerce, and more. Each design is customized to match your industry and audience.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "How fast is the turnaround?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Most graphic designs are ready within 2–3 business days. Video editing typically takes 3–7 days, depending on length and revisions.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Are revisions included?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes! We offer multiple revision rounds to ensure you're fully satisfied with the outcome.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Do you offer monthly packages?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Absolutely. We offer flexible monthly plans for businesses needing regular creative support, perfect for social media and ad campaigns.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "How do I get started?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Reach out via our contact form or social media. We’ll guide you through every step of the process—from idea to delivery.",
+                                        },
+                                    },
+                                ],
+                            }),
+                        }}
+                    />
+
+
                     <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
                         <Navbar />
                         <ServiceHero content={heroData} />

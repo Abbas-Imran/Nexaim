@@ -162,64 +162,147 @@ export default function Home() {
     ];
 
     const faqsubtitle = " Get answers to the most common questions about our  digital marketing services"
+
+
+
     const productSchema = {
-        "@context": "https://schema.org/",
+        "@context": "https://schema.org",
         "@type": "Product",
-        "name": "The Nexaim: Digital Marketing Expert in Karachi - Social Media Marketing Agency in Pakistan",
-        "image": "https://thenexaim.com/_next/image?url=%2Fassets%2FDigital_Marketing.jpg&w=640&q=75",
-        "description": "Nexaim is a leading marketing company in Pakistan, recognized for excellence as a social media marketing agency. We provide professional PPC and social media management services in Karachi, including Meta advertising, LinkedIn page management, Instagram and Facebook posting, and profile optimization.",
-        "brand": "The Nexaim",
-        "aggregateRating": {
+        name: "Digital Marketing Expert in Karachi - Social Media Marketing Agency in Pakistan",
+        description:
+            "Nexaim is a leading marketing company in Pakistan, recognized for excellence as a social media marketing agency. We provide professional PPC and social media management services in Karachi, including Meta advertising, LinkedIn page management, Instagram and Facebook posting, and profile optimization.",
+        brand: "The Nexaim",
+        aggregateRating: {
             "@type": "AggregateRating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "4.9",
-            "ratingCount": "22"
-        }
+            ratingValue: "5",
+            bestRating: "5",
+            worstRating: "4.9",
+            ratingCount: "22",
+        },
     };
 
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "The Nexaim: Digital Marketing Expert in Karachi - Social Media Marketing Agency in Pakistan",
-        "description": "Nexaim is a leading marketing company in Pakistan, recognized for excellence as a social media marketing agency. We provide professional PPC and social media management services in Karachi, including Meta advertising, LinkedIn page management, Instagram and Facebook posting, and profile optimization.",
-        "provider": {
+        name: "Digital Marketing Expert in Karachi - Social Media Marketing Agency in Pakistan",
+        description:
+            "Nexaim is a leading marketing company in Pakistan, recognized for excellence as a social media marketing agency. We provide professional PPC and social media management services in Karachi, including Meta advertising, LinkedIn page management, Instagram and Facebook posting, and profile optimization.",
+        provider: {
             "@type": "Organization",
-            "name": "The Nexaim",
-            "url": "https://thenexaim.com/affordable-digital-marketing-services-in-pakistan",
-            "logo": "",
-            "contactPoint": {
+            name: "The Nexaim",
+            url: "https://thenexaim.com/affordable-digital-marketing-services-in-pakistan",
+            logo: "https://thenexaim.com/marketing-agency-for-startups/waylogo.png",
+            contactPoint: {
                 "@type": "ContactPoint",
-                "telephone": "03432469633",
-                "contactType": "Customer Service",
-                "areaServed": "PAK, KHI",
-                "availableLanguage": ["English"]
-            }
-        },
-        "areaServed": {
-            "@type": "Place",
-            "name": "PAK"
-        },
-        "serviceType": "digital marketing expert in pakistan, social media marketing agencies in pakistan, social media marketing agency in pakistan, social media marketing agency, social media agency, best marketing company in pakistan, digital marketing company in pakistan, Meta advertisement, facebook and instagram advertisement",
-        "category": "Digital Marketing",
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PKR",
-            "price": "$",
-            "eligibleRegion": {
-                "@type": "Place",
-                "name": "Pakistan"
+                telephone: "03432469633",
+                contactType: "Sales",
+                areaServed: "PAK, KHI",
+                availableLanguage: ["English"],
             },
-            "availability": "https://schema.org/InStock"
-        }
+        },
+        areaServed: { "@type": "Place", name: "PAK" },
+        serviceType:
+            "digital marketing expert in pakistan, social media marketing agencies in pakistan, social media marketing agency in pakistan, social media marketing agency, social media agency, best marketing company in pakistan, digital marketing company in pakistan, Meta advertisement, facebook and instagram advertisement",
+        category: "Digital Marketing",
+        offers: {
+            "@type": "Offer",
+            priceCurrency: "PKR",
+            price: "$",
+            eligibleRegion: { "@type": "Place", name: "Pakistan" },
+            availability: "https://schema.org/InStock",
+        },
     };
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+            {
+                "@type": "Question",
+                name: "What makes Nexaim different from other digital marketing agencies?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "We combine data-driven strategies with local market insights to deliver real results. Unlike agencies that focus on vanity metrics, we prioritize ROAS, conversions, and long-term growth.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "How quickly will I see results from your ad campaigns?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Most clients begin seeing initial results within 7–14 days of launching optimized campaigns. Significant ROAS improvements typically occur within the first 1–3 months.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "Do you work with both startups and established brands?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Absolutely! We tailor our approach for both startups and established businesses based on their goals and stage.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "What platforms do you specialize in?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "We specialize in Facebook, Instagram, and Google Ads (PPC) with performance marketing expertise.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "What is digital marketing?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Digital marketing means promoting products/services using online platforms like social media, search engines, websites, and email.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "Is digital marketing suitable for small businesses or startups?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes — it is cost-effective and helps compete with bigger brands. Nexaim offers affordable plans for any budget.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "How long does it take to see results?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "SEO usually takes 3–6 months. Paid ads and social media can show results in days or weeks depending on strategy and budget.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "How do I get started with Nexaim?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Simply contact us through our website or social media. We offer a free consultation and tailored plan.",
+                },
+            },
+        ],
+    };
+
     return (
         <html>
-            <head>
+            {/* <head>
                 <meta name="google-site-verification" content="rSmgiUi5hClwP2sfbwSV1xX0POJwTuw5IjXRyxhtECs" />
-            </head>
+            </head> */}
             <body>
                 <main>
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+                    />
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+                    />
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                    />
                     <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
                         <Navbar />
                         <ServiceHero content={heroData} />
@@ -241,11 +324,6 @@ export default function Home() {
 
                         />;
                         <FAQSection data={faqData} subtitle={faqsubtitle} />
-                        {/* <Collaboration />
-        <Services /> */}
-                        {/* <Pricing /> */}
-                        {/* <Roadmap /> */}
-                        {/* <ContactForm /> */}
                         <Footer />
                     </div>
                     <ButtonGradient />

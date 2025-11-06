@@ -217,25 +217,132 @@ export default function Home() {
 
     return (
         <html>
-            <head>
+            {/* <head>
                 <meta name="google-site-verification" content="rSmgiUi5hClwP2sfbwSV1xX0POJwTuw5IjXRyxhtECs" />
-            </head>
+            </head> */}
             <body>
                 <main>
+                    <Script
+                        id="product-schema-web"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org/",
+                                "@type": "Product",
+                                name: "Affordable Website Design Company - Custom Website Development Company",
+                                description:
+                                    "The Nexaim provide professional website design and development services in Karachi, Pakistan, specializing in custom CMS and WordPress websites. All websites are SEO-friendly, responsive, and designed to increase brand visibility and user engagement.",
+                                brand: "The Nexaim",
+                                aggregateRating: {
+                                    "@type": "AggregateRating",
+                                    ratingValue: "5",
+                                    bestRating: "5",
+                                    worstRating: "4.9",
+                                    ratingCount: "10",
+                                },
+                            }),
+                        }}
+                    />
+                    <Script
+                        id="service-schema-web"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "Service",
+                                name: "Affordable Website Design Company - Custom Website Development Company",
+                                description:
+                                    "We provide professional website design and development services in Karachi, Pakistan, specializing in custom CMS and WordPress websites that are visually appealing, SEO-friendly, and built with responsive, user-friendly layouts.",
+                                provider: {
+                                    "@type": "Organization",
+                                    name: "The Nexaim",
+                                    url: "https://thenexaim.com/web-design-and-development-services",
+                                    logo: "https://thenexaim.com/marketing-agency-for-startups/waylogo.png",
+                                    contactPoint: {
+                                        "@type": "ContactPoint",
+                                        telephone: "+92-343-2469633",
+                                        contactType: "Customer Service",
+                                        areaServed: "PK",
+                                        availableLanguage: ["English"],
+                                    },
+                                },
+                                areaServed: { "@type": "Place", name: "Pakistan" },
+                                serviceType:
+                                    "best website design and development company, affordable website development, website design services, web maintenance services, site maintenance services, web development services in Pakistan, web development company in Karachi, best web design company in Pakistan",
+                                category: "Web Design and Development Services",
+                                offers: {
+                                    "@type": "Offer",
+                                    priceCurrency: "PKR",
+                                    price: "0.00",
+                                    eligibleRegion: { "@type": "Place", name: "Pakistan" },
+                                    availability: "https://schema.org/InStock",
+                                },
+                            }),
+                        }}
+                    />
+                    <Script
+                        id="faq-schema-web"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "FAQPage",
+                                mainEntity: [
+                                    {
+                                        "@type": "Question",
+                                        name: "What types of websites does Nexaim develop?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "We build business websites, e-commerce stores, portfolios, landing pages, blogs, and branding websites — all custom-designed for your digital goals.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "How long does it take to develop a website?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Standard business websites take 2–3 weeks. Advanced e-commerce and custom systems take 4–6 weeks or more.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Can Nexaim redesign my current website?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes! We modernize old websites for improved UI/UX, speed, SEO, and mobile experience, while keeping your brand identity intact.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Will my new website be SEO-optimized?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes, SEO is part of our process — including schema markup, speed optimization, and Google-friendly structure.",
+                                        },
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        name: "Do you provide post-launch support?",
+                                        acceptedAnswer: {
+                                            "@type": "Answer",
+                                            text: "Yes — we offer maintenance, updates, security monitoring, and performance optimization.",
+                                        },
+                                    },
+                                ],
+                            }),
+                        }}
+                    />
+
+
                     <div className={cn("overflow-hidden bg-[#0E0C15] pt-[4.75rem] lg:pt-[5.25rem]")}>
                         <Navbar />
                         <ServiceHero content={heroData} />
-                        {/* <Benefits /> */}
-                        {/* <ServiceBenefits
-                    sectionTitle=""
-                    benefits={benefitsData}
-                /> */}
+
                         <ServicesSectionDetails
                             title="Let’s Build a Website That Grows With You"
                             subheading="Whether you're launching a new business or scaling your digital presence, Nexaim is your go-to web development partner. Our development team understands not just code — but marketing, branding, and results. Let’s turn your vision into a high-impact, conversion-ready website"
 
-                            heading="Our Website Development Services Include
-"
+                            heading="Website Development Services "
                             gradientText=""
                             subtitle=""
                             description=""

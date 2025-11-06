@@ -1,8 +1,9 @@
 
 
 import React from "react";
-import type { LucideIcon } from "lucide-react";
-import { title } from "process";
+import { type LucideIcon } from "lucide-react";
+import Link from "next/link";
+
 
 export interface Service {
   icon: LucideIcon;
@@ -35,6 +36,8 @@ export default function ServicesSectionDetails({
   title,
   subheading
 }: Props) {
+
+
   return (
     <div className="bg-n-8 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -45,22 +48,30 @@ export default function ServicesSectionDetails({
         <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-color-1/10 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="relative z-10 container py-16">
+      <div className="relative z-10 container py-4 lg:py-6 md:py-4">
+
+
+
+
+
+
+
+
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center ">
           {
-            heading.trim() == "Our Website Development Services Include" ?
+            heading.trim() == "Website Development Services" ?
               (
                 <h2
 
-                  className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+                  className="text-4xl  text-center md:text-6xl font-bold text-white  leading-tight"
                 >
 
                   <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {heading}
                   </span>
                 </h2>
-              ) : <h2 className={`h2   text-n-1 mb-6`}>
+              ) : <h2 className={`h2   text-n-1 `}>
                 {heading}
                 <span className="block bg-gradient-to-r from-color-1 to-color-6 bg-clip-text text-transparent">
                   {gradientText}
@@ -77,6 +88,8 @@ export default function ServicesSectionDetails({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const parts = service.description.split(/(SEO)/gi);
+
             return (
               <div
                 key={index}
@@ -93,10 +106,57 @@ export default function ServicesSectionDetails({
 
                 {/* Title & Description */}
                 <h3 className="h5 text-n-1 mb-4 group-hover:text-color-1 transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="body-2 text-n-3 leading-relaxed">{service.description}</p>
+                  {
+                    service.title.toLowerCase().includes("seo") ?
+                      (
+                        <Link className="hover:underline" href={"/best-seo-agency-in-pakistan"}>
+                          {service.title}
+                        </Link>
+                      ) : service.title.toLowerCase().includes("video editing") ?
+                        (
+                          <Link className="hover:underline" href={"/graphic-design-and-video-editing-service"}>
+                            {service.title}
+                          </Link>
+                        )
+                        :
+                        service.title.toLowerCase().includes("graphics") ?
+                          (
+                            <Link className="hover:underline" href={"/graphic-design-and-video-editing-servicen"}>
+                              {service.title}
+                            </Link>
+                          )
+                          :
+                          (
+                            service.title
+                          )
+                  }
 
+                </h3>
+                <p className="body-2 text-n-4 max-w-3xl mx-auto">
+                  {parts.map((part, index) =>
+                    part.toLowerCase() === "seo" ? (
+                      <Link
+                        key={index}
+                        href="/best-seo-agency-in-pakistan"
+                        className="text-blue-600 hover:underline"
+                      >
+                        {part}
+                      </Link>
+                    ) :
+                      part.toLowerCase() == "graphics" ? (
+                        <Link
+                          key={index}
+                          href="/graphic-design-and-video-editing-service"
+                          className="text-blue-600 hover:underline"
+                        >
+                          {part}
+                        </Link>
+                      )
+                        : (
+                          part
+                        )
+                  )}
+                </p>
                 {/* Hover Line */}
                 <div
                   className={`w-0 h-0.25 bg-gradient-to-r from-${service.color} to-transparent mt-6 group-hover:w-full transition-all duration-500`}
