@@ -34,7 +34,7 @@ const ServiceHero = ({ content }: Props) => {
 
   return (
     <Section
-      className={cn("my-6 lg:my-12 md:my-8")}
+      className={cn("my-6 lg:my-16 md:my-8")}
       crosses
       crossesOffset="lg:translate-y-[5.25rem]"
       customPaddings

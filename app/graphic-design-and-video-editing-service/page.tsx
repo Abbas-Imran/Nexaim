@@ -82,6 +82,7 @@ import ServicesSectionDetails, { Service } from "@/components/sections/service-p
 import ServiceHero from "@/components/sections/service-page/service-hero";
 import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
+import ContactForm from "@/components/sections/contactus";
 import { Metadata } from "next";
 // import { images, Seobenefits } from "@/constants";
 export const metadata: Metadata = {
@@ -404,7 +405,7 @@ export default function Home() {
         <Services /> */}
                         {/* <Pricing /> */}
                         {/* <Roadmap /> */}
-                        {/* <ContactForm /> */}
+                        <ContactForm />
                         <Footer />
                     </div>
                     <ButtonGradient />

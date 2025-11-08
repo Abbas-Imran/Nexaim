@@ -26,6 +26,7 @@ import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
 import { images } from "@/constants";
 import { Metadata } from "next";
+import ContactForm from "@/components/sections/contactus";
 import { main } from "framer-motion/client";
 import Script from "next/script";
 export const metadata: Metadata = {
@@ -313,7 +314,7 @@ export default function Home() {
         <Services /> */}
                         {/* <Pricing /> */}
                         {/* <Roadmap /> */}
-                        {/* <ContactForm /> */}
+                        <ContactForm />
                         <Footer />
                     </div>
                     <ButtonGradient />

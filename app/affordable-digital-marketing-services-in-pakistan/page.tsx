@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { images } from "@/constants";
 import { Metadata } from "next";
 import Script from "next/script";
+import ContactForm from "@/components/sections/contactus";
 
 export const metadata: Metadata = {
     title: 'Social Media Marketing Agency in Pakistan - Digital Marketing Expert in Pakistan',
@@ -324,6 +325,7 @@ export default function Home() {
 
                         />;
                         <FAQSection data={faqData} subtitle={faqsubtitle} />
+                        <ContactForm />
                         <Footer />
                     </div>
                     <ButtonGradient />

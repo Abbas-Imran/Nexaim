@@ -227,7 +227,7 @@ export const servicenavigation = [
   {
     id: "3",
     title: "Contact Us",
-    url: "#faq",
+    url: "#contact-us",
   },
 
   {

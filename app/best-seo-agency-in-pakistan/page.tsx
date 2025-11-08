@@ -8,9 +8,11 @@ import ServiceBenefits, { BenefitItem } from "@/components/sections/service-page
 import ServicesSectionDetails, { Service } from "@/components/sections/service-page/service-details";
 import ServiceHero from "@/components/sections/service-page/service-hero";
 import ButtonGradient from "@/components/svg/button-gradient";
+
 import { cn } from "@/lib/utils";
 import { images } from "@/constants";
 import { Metadata } from "next";
+import ContactForm from "@/components/sections/contactus";
 export const metadata: Metadata = {
     title: 'Top SEO Expert in Pakistan - Best SEO Agency in Pakistan',
     description: 'Nexaim is a top-tier SEO company in Pakistan, offering expert SEO services in off-page, on-page, and technical SEO. Based in Karachi, we serve clients across the country.',
@@ -272,7 +274,7 @@ export default function Home() {
         <Services /> */}
                         {/* <Pricing /> */}
                         {/* <Roadmap /> */}
-                        {/* <ContactForm /> */}
+                        <ContactForm />
                         <Footer />
                     </div>
                     <ButtonGradient />

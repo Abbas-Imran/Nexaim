@@ -92,7 +92,7 @@ const Navbar = (props: Props) => {
                   {item.title === "Services" ? (
                     <>
                       <button
-                        onClick={toggleServices}
+
                         className={cn(
                           `block relative font-code uppercase tracking-wide`,
                           "px-6 py-6 md:py-8 lg:-mr-0.25",

@@ -80,8 +80,8 @@ export default function ServicesSectionDetails({
           }
 
 
-          <p className="body-1 text-n-3 max-w-4xl mx-auto mb-4">{subtitle}</p>
-          <p className="body-2 text-n-4 max-w-3xl mx-auto">{description}</p>
+          <p className="body-1 text-n-3 text-lg max-w-4xl mx-auto mb-2">{subtitle}</p>
+          <p className="body-2 text-n-4  max-w-3xl mx-auto mb-4">{description}</p>
         </div>
 
         {/* Services Grid */}
