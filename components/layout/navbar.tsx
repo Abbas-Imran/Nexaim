@@ -92,7 +92,7 @@ const Navbar = (props: Props) => {
                   {item.title === "Services" ? (
                     <>
                       <button
-
+                        onClick={toggleServices}
                         className={cn(
                           `block relative font-code uppercase tracking-wide`,
                           "px-6 py-6 md:py-8 lg:-mr-0.25",
@@ -122,12 +122,12 @@ const Navbar = (props: Props) => {
                       {/* Dropdown */}
                       <div
                         className={cn(
-                          // Desktop hover dropdown
-                          "absolute left-0 top-full hidden lg:group-hover:block bg-black/95 backdrop-blur-md rounded-lg mt-1 shadow-lg z-50 min-w-[220px]",
-                          // Mobile toggle dropdown
-                          openServices
-                            ? "block static bg-black/95 rounded-lg mt-2 w-full"
-                            : "hidden"
+                          // Base styles
+                          "bg-black/95 backdrop-blur-md rounded-lg shadow-lg z-50",
+                          // Desktop: absolute positioning, show on hover (independent of openServices)
+                          "absolute left-0 top-full hidden lg:group-hover:block mt-1 min-w-[220px]",
+                          // Mobile: static positioning, show when openServices is true
+                          openServices ? "block static mt-2 w-full" : ""
                         )}
                       >
                         {serviceDropdown.map((service) => (
