@@ -10,16 +10,17 @@ import BlogCard, { BlogCardProps } from "./BlogCard";
 // Sample blog data - in production, this would come from a CMS or API
 const featuredBlogs: BlogCardProps[] = [
   {
-    id: 1,
-    title: "The Future of Digital Marketing: AI-Powered Strategies in 2025",
+    id: 7,
+    title: "Digital Marketing for Small Businesses in Pakistan: Why It's No Longer Optional",
     excerpt:
-      "Discover how artificial intelligence is revolutionizing digital marketing and what strategies your business needs to stay competitive.",
-    author: "Sarah Mitchell",
-    date: "November 26, 2025",
-    readTime: "8 min read",
-    image: "/assets/industries/Education.jpg",
+      "In today's fast-changing business environment, digital marketing is no longer a luxury reserved for big brands. For small businesses in Pakistan, it has become a necessity.",
+    author: "Nexaim Team",
+    date: "December 1, 2025",
+    readTime: "10 min read",
+    image: "/assets/industries/Startup.jpeg",
     category: "Digital Marketing",
-    slug: "ai-powered-digital-marketing-2025",
+    slug: "digital-marketing-small-businesses-pakistan",
+    tags: ["Digital Marketing", "Small Business", "Pakistan", "SME"],
   },
   {
     id: 2,

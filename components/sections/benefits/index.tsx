@@ -92,6 +92,7 @@ const Benefits = () => {
 
         <div className="mb-10 flex flex-wrap gap-10" ref={ref}>
           <Slider ref={sliderRef} {...settings} className="w-full">
+
             {benefits.map((item) => (
               <motion.div
                 key={item.id}
@@ -99,35 +100,52 @@ const Benefits = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8 }}
-                className="relative border-2 border-[#db87d3] group cursor-pointer md:max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#db87d3]/50 hover:border-[#db87d3] mx-6 md:mx-8 h-[280px] md:h-[320px]"
               >
+                {/* Background Image */}
+                {item.imageUrl && (
+                  <div className="absolute inset-0">
+                    <Image
+                      src={item.imageUrl}
+                      fill
+                      alt={item.title}
+                      className="object-cover opacity-80 group-hover:opacity-30 transition-opacity duration-500"
+                    />
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+                  </div>
+                )}
 
-                <div className="absolute inset-0 overflow-hidden">
-                  {/* <div className="absolute top-32 right-10 w-40 h-40 bg-color-2/10 rounded-full blur-2xl"></div> */}
-                  {/* <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#83567f] rounded-full blur-xl"></div> */}
-                  {/* <div className="absolute top-1/2 right-1/4 w-28 h-28 bg-color-6/20 rounded-full blur-lg"></div> */}
-                  {/* <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-color-1/10 rounded-full blur-2xl"></div> */}
-                </div>
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 md:p-8 text-center">
+                  {/* Purple Icon */}
+                  {item.iconUrl && (
+                    <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 md:w-16 md:h-16 relative flex items-center justify-center">
+                        <Image
+                          src={item.iconUrl}
+                          width={80}
+                          height={80}
+                          alt={`${item.title} icon`}
+                          className="w-full h-full object-contain"
+                          style={{
+                            filter: "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(258deg) brightness(118%) contrast(119%)"
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )}
 
-                {/* {item.imageUrl && (
-                  <Image
-                    src={item.imageUrl}
-                    width={380}
-                    
-                    height={362}
-                    alt={item.title}
-                    className="absolute inset-0 size-full object-cover opacity-30 group-hover:opacity-40 transition duration-500"
-                  />
-                )} */}
-
-                <div className="relative z-10 flex min-h-[22rem] flex-col p-8">
-                  <h4 className="text-xl font-extrabold mb-4 text-white group-hover:text-[#B500A5] transition-colors duration-300">
+                  {/* Large White Uppercase Title */}
+                  <h4 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white uppercase tracking-wide mb-3 group-hover:text-[#B500A5] transition-colors duration-300 leading-tight">
                     {item.title}
                   </h4>
-                  <p className="text-sm mb-6 text-gray-300 text-[1rem] leading-relaxed">{item.text}</p>
+
+                  {/* Learn More Link */}
                   <Link
                     href={item.url}
-                    className="mt-auto flex items-center text-sm font-semibold text-[#B500A5] group-hover:text-white transition-colors duration-300"
+                    className="mt-4 inline-flex items-center text-sm font-semibold text-[#B500A5] group-hover:text-white transition-colors duration-300"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Learn More
                     <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
@@ -135,8 +153,6 @@ const Benefits = () => {
                     </span>
                   </Link>
                 </div>
-
-                <div className="absolute inset-0 rounded-2xl border border-white/10 backdrop-blur-md"></div>
               </motion.div>
             ))}
           </Slider>
