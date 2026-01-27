@@ -25,19 +25,32 @@ const allBlogs: BlogCardProps[] = [
   },
   {
     id: 2,
-    title: "SEO Best Practices for 2025: What's Changed and What Works",
+    title: "Why SEO Is Essential for Small Businesses in Pakistan",
     excerpt:
-      "Stay ahead of the curve with the latest SEO strategies that actually work in 2025. Learn about algorithm updates and proven techniques.",
-    author: "John Davis",
-    date: "November 24, 2025",
-    readTime: "6 min read",
+      "SEO VS Social Media: What is the Difference & How Can Help for Small Businesses. Discover why SEO is crucial for small businesses and how it compares to social media marketing.",
+    author: "Nexaim Team",
+    date: "December 5, 2025",
+    readTime: "12 min read",
     image: "/assets/industries/Technology.jpeg",
     category: "SEO",
-    slug: "seo-best-practices-2025",
-    tags: ["SEO", "Search Engine Optimization", "2025"],
+    slug: "why-seo-essential-small-businesses-pakistan",
+    tags: ["SEO", "Small Business", "Pakistan", "Social Media", "Digital Marketing"],
   },
   {
     id: 3,
+    title: "Things to Keep in Mind When Choosing a Website Development Service",
+    excerpt:
+      "In Pakistan's rapidly growing digital landscape, a website is no longer just an online presence—it is a business tool that influences credibility, customer trust, and long-term growth.",
+    author: "Nexaim Team",
+    date: "December 10, 2025",
+    readTime: "15 min read",
+    image: "/assets/industries/Technology.jpeg",
+    category: "Web Development",
+    slug: "choosing-website-development-service",
+    tags: ["Web Development", "Website Design", "Pakistan", "Business Growth"],
+  },
+  {
+    id: 4,
     title: "Building a Strong Brand Identity: Design Tips That Convert",
     excerpt:
       "Learn how to create a memorable brand identity that resonates with your audience and drives conversions.",
@@ -49,8 +62,9 @@ const allBlogs: BlogCardProps[] = [
     slug: "building-strong-brand-identity",
     tags: ["Branding", "Design", "Marketing"],
   },
+
   {
-    id: 4,
+    id: 5,
     title: "Social Media Marketing: A Complete Guide for 2025",
     excerpt:
       "Master social media marketing with our comprehensive guide covering the latest platforms, strategies, and best practices.",
@@ -62,19 +76,7 @@ const allBlogs: BlogCardProps[] = [
     slug: "social-media-marketing-guide-2025",
     tags: ["Social Media", "Marketing", "Strategy"],
   },
-  {
-    id: 5,
-    title: "Web Development Trends: What to Expect in 2025",
-    excerpt:
-      "Explore the cutting-edge web development trends that will shape the digital landscape in 2025 and beyond.",
-    author: "David Wilson",
-    date: "November 18, 2025",
-    readTime: "10 min read",
-    image: "/assets/industries/Technology.jpeg",
-    category: "Web Development",
-    slug: "web-development-trends-2025",
-    tags: ["Web Development", "Technology", "Trends"],
-  },
+
   {
     id: 6,
     title: "Content Marketing Strategies That Drive Results",

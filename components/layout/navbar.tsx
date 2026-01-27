@@ -173,7 +173,7 @@ const Navbar = (props: Props) => {
           </nav>
 
           <Link
-            href="mailto:thenexaim@gmail.com"
+            href="mailto:info@thenexaim.com"
             className="button mr-8 hidden text-n-1/50 transition-colors  hover:text-n-1 lg:block"
           >
             Email Us
