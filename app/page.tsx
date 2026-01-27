@@ -10,6 +10,7 @@ const TestimonialsSection = React.lazy(() => import("@/components/sections/testi
 // import Roadmap from "@/components/sections/roadmap";
 import Services from "@/components/sections/services";
 import AboutUs from "@/components/sections/AboutUs";
+import Blog from "@/components/sections/blog";
 import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
@@ -261,7 +262,8 @@ export default function Home() {
             <Hero />
             <Benefits />
             <AboutUs />
-            <Collaboration />
+            {/* <Collaboration /> */}
+            <Blog />
             <TestimonialsSection />
             <ContactForm />
 

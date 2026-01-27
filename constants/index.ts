@@ -72,7 +72,11 @@ export const images = {
   benefitIcon2: "/assets/benefits/icon-2.svg",
   benefitIcon3: "/assets/benefits/icon-3.svg",
   benefitIcon4: "/assets/benefits/icon-4.svg",
-  benefitImage2: "/assets/benefits/image-2.png",
+  benefitImage2: "/assets/benefits/Digital-Marketing.png",
+  benefitImage3: "/assets/benefits/Web-Development.jpg",
+  benefitImage4: "/assets/benefits/Podcast.png",
+  benefitImage5: "/assets/benefits/SEO.png",
+  benefitImage6: "/assets/benefits/Graphics&Edit.jpg",
   discordBlack: "/assets/socials/discord.svg",
   facebook: "/assets/socials/facebook.svg",
   instagram: "/assets/socials/instagram.svg",
@@ -97,12 +101,22 @@ export const images = {
   graphicdesign: "/assets/servicess/graphic-design.png",
   instagramService: "/assets/servicess/INSTAGRAM.png",
   videoediting: "/assets/servicess/video-editing.png",
+  digitalMarketing: "/assets/servicess/Digital_Marketing.png",
+  graphicdesign2: "/assets/servicess/Graphic_Designing_Video_Editing.png",
+  webDevelopment2: "/assets/servicess/Web_development.png",
+  podcast2: "/assets/servicess/Podcast.png",
+  SEO: "/assets/servicess/SEO.png",
 };
 
 const {
   mailIcon,
   facebookService,
   instagramService,
+  digitalMarketing,
+  graphicdesign2,
+  webDevelopment2,
+  podcast2,
+  SEO,
   // videoediting,
   youtubeService,
   photoshoot,
@@ -156,6 +170,10 @@ const {
   benefitIcon3,
   benefitIcon4,
   benefitImage2,
+  benefitImage3,
+  benefitImage4,
+  benefitImage5,
+  benefitImage6,
   discordBlack,
   facebook,
   instagram,
@@ -454,28 +472,28 @@ export const benefits = [
     title: "Digital Marketing",
     text: "Drive Growth with Smart Strategies! Maximize your brand’s online presence through targeted campaigns, social media, and performance-based digital marketing. Nexaim turns clicks into customers.",
     backgroundUrl: "assets/benefits/card-1.svg",
-    iconUrl: facebookService,
+    iconUrl: digitalMarketing,
     imageUrl: benefitImage2,
     url: "/affordable-digital-marketing-services-in-pakistan"
   },
-  {
-    id: "1",
-    title: "Graphic Design & Video Editing",
-    text: "Boost Your Brand with Stunning Designs & Scroll-Stopping Videos! Nexaim transforms your raw content into professional-grade visuals and polished video edits. We build strong brand identities and create content that engages, connects, and converts.",
-    backgroundUrl: "assets/benefits/card-2.svg",
-    iconUrl: instagramService,
-    imageUrl: benefitImage2,
-    light: true,
-    url: "/graphic-design-and-video-editing-service"
-  },
 
+
+  {
+    id: "5",
+    title: "Podcast",
+    text: "Turn Your  Voice into a Brand! From recording to promotion, Nexaim helps you launch and grow a podcast that connects, engages, and builds a loyal audience",
+    backgroundUrl: "assets/benefits/card-6.svg",
+    iconUrl: podcast2,
+    imageUrl: benefitImage4,
+    url: "/services/podcast-production"
+  },
   {
     id: "3",
     title: " Web Development  ",
     text: "Websites That Work, Perform & Scale! We build fast, secure, and SEO-ready websites designed for user experience, brand impact, and business results custom-built from the ground up.",
     backgroundUrl: "assets/benefits/card-4.svg",
-    iconUrl: graphicdesign,
-    imageUrl: benefitImage2,
+    iconUrl: webDevelopment2,
+    imageUrl: benefitImage3,
     url: "/web-design-and-development-services",
     light: true,
   },
@@ -484,19 +502,22 @@ export const benefits = [
     title: "SEO ",
     text: "Get Found Where It Matters! Boost your visibility with Nexaim’s smart SEO solutions. From on-page optimization to technical SEO, we help you rank higher and grow organically",
     backgroundUrl: "assets/benefits/card-5.svg",
-    iconUrl: videoediting,
-    imageUrl: benefitImage2,
+    iconUrl: SEO,
+    imageUrl: benefitImage5,
     url: "/best-seo-agency-in-pakistan"
   },
   {
-    id: "5",
-    title: "Podcast",
-    text: "Turn Your  Voice into a Brand! From recording to promotion, Nexaim helps you launch and grow a podcast that connects, engages, and builds a loyal audience",
-    backgroundUrl: "assets/benefits/card-6.svg",
-    iconUrl: photoshoot,
-    imageUrl: benefitImage2,
-    url: "/services/podcast-production"
+    id: "1",
+    title: "Graphic Design & Video Editing",
+    text: "Boost Your Brand with Stunning Designs & Scroll-Stopping Videos! Nexaim transforms your raw content into professional-grade visuals and polished video edits. We build strong brand identities and create content that engages, connects, and converts.",
+    backgroundUrl: "assets/benefits/card-2.svg",
+    iconUrl: graphicdesign2,
+    imageUrl: benefitImage6,
+    light: true,
+    url: "/graphic-design-and-video-editing-service"
   },
+
+
 
 ];
 export const Seobenefits = [

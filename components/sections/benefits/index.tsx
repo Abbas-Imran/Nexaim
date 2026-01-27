@@ -63,6 +63,8 @@ const Benefits = () => {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    // centerMode: false,
+    // variableWidth: false,
   };
 
   return (
@@ -91,7 +93,8 @@ const Benefits = () => {
         </h3>
 
         <div className="mb-10 flex flex-wrap gap-10" ref={ref}>
-          <Slider ref={sliderRef} {...settings} className="w-full">
+          <Slider ref={sliderRef} {...settings} className="w-full [&_.slick-slide]:px-2 md:[&_.slick-slide]:px-3 lg:[&_.slick-slide]:px-4">
+
             {benefits.map((item) => (
               <motion.div
                 key={item.id}
@@ -99,44 +102,70 @@ const Benefits = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8 }}
-                className="relative border-2 border-[#db87d3] group cursor-pointer md:max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#db87d3]/50 hover:border-[#db87d3] h-[280px] md:h-[320px]"
               >
+                {/* Background Image */}
+                {item.imageUrl && (
+                  <div className="absolute inset-0">
+                    <Image
+                      src={item.imageUrl}
+                      fill
+                      alt={item.title}
+                      className="object-cover opacity-40
+                       group-hover:opacity-30 transition-opacity duration-500"
+                    />
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+                  </div>
+                )}
 
-                <div className="absolute inset-0 overflow-hidden">
-                  {/* <div className="absolute top-32 right-10 w-40 h-40 bg-color-2/10 rounded-full blur-2xl"></div> */}
-                  {/* <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#83567f] rounded-full blur-xl"></div> */}
-                  {/* <div className="absolute top-1/2 right-1/4 w-28 h-28 bg-color-6/20 rounded-full blur-lg"></div> */}
-                  {/* <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-color-1/10 rounded-full blur-2xl"></div> */}
-                </div>
-
-                {/* {item.imageUrl && (
-                  <Image
-                    src={item.imageUrl}
-                    width={380}
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 md:p-8 text-center">
+                  {/* Purple Icon */}
+                  {/* {item.iconUrl && (
+                    <div className="mb-5 transform group-hover:scale-110 transition-all duration-300">
+                      <div className="relative flex items-center justify-center">
                     
-                    height={362}
-                    alt={item.title}
-                    className="absolute inset-0 size-full object-cover opacity-30 group-hover:opacity-40 transition duration-500"
-                  />
-                )} */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300 scale-150"></div>
 
-                <div className="relative z-10 flex min-h-[22rem] flex-col p-8">
-                  <h4 className="text-xl font-extrabold mb-4 text-white group-hover:text-[#B500A5] transition-colors duration-300">
+                      
+                        <div className="relative w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 flex items-center justify-center">
+                          <Image
+                            src={item.iconUrl}
+                            width={160}
+                            height={160}
+                            alt={`${item.title} icon`}
+                            className="w-full h-full object-contain drop-shadow-lg"
+                            style={{
+                              filter: "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(258deg) brightness(118%) contrast(119%)",
+                              transition: "all 0.3s ease"
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )} */}
+
+                  {/* Large White Uppercase Title */}
+                  <h4 className="text-xl md:text-2xl lg:text-4xl font-extrabold text-white uppercase tracking-wide mb-3 group-hover:text-[#B500A5] transition-colors duration-300 leading-tight">
                     {item.title}
                   </h4>
-                  <p className="text-sm mb-6 text-gray-300 text-[1rem] leading-relaxed">{item.text}</p>
-                  <Link
-                    href={item.url}
-                    className="mt-auto flex items-center text-sm font-semibold text-[#B500A5] group-hover:text-white transition-colors duration-300"
-                  >
-                    Learn More
-                    <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
-                      <Arrow />
-                    </span>
-                  </Link>
-                </div>
 
-                <div className="absolute inset-0 rounded-2xl border border-white/10 backdrop-blur-md"></div>
+                  {/* Learn More Link */}
+                  <div>
+                    <Link
+                      href={item.url}
+                      className={`${item.title.trim() == 'SEO' ? 'ml-8' : ''} mt-4 inline-flex items-center text-lg font-semibold text-[#B500A5] group-hover:text-white transition-colors duration-300`}
+
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Learn More
+                      <span className={`  ml-2 transform group-hover:translate-x-1 transition-transform duration-300`}>
+                        <Arrow />
+                      </span>
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </Slider>

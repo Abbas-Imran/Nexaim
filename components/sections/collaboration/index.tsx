@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { section } from "framer-motion/client";
+import Link from "next/link";
 
 type prop = {};
 
@@ -100,30 +100,32 @@ const Collaboration = (Prop: prop) => {
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12"
         >
           {industries.map((item, index) => (
-            <motion.div key={index} variants={fadeUp}>
-              <div className="relative flex flex-col gap-4 p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-2 transition-all duration-300">
-                <div className="relative overflow-hidden rounded-xl group">
-                  <Image
-                    src={item.img}
-                    className="h-48 w-full object-cover transform group-hover:scale-110 transition-transform duration-500 rounded-xl"
-                    width={400}
-                    height={200}
-                    alt={item.name}
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
-                </div>
+            <Link key={index} href={`/blogs/${item.name.toLowerCase()}`}>
+              <motion.div key={index} variants={fadeUp}>
+                <div className="relative flex flex-col gap-4 p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-2 transition-all duration-300">
+                  <div className="relative overflow-hidden rounded-xl group">
+                    <Image
+                      src={item.img}
+                      className="h-48 w-full object-cover transform group-hover:scale-110 transition-transform duration-500 rounded-xl"
+                      width={400}
+                      height={200}
+                      alt={item.name}
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                  </div>
 
-                <div className="text-center">
-                  <p className="text-[1.75rem] font-bold uppercase bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent tracking-wide drop-shadow-sm">
-                    {item.name}
-                  </p>
-                  <p className="text-sm text-gray-400 mt-1">
-                    Transforming the {item.name.toLowerCase()} industry with digital innovation.
-                  </p>
+                  <div className="text-center">
+                    <p className="text-[1.75rem] font-bold uppercase bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent tracking-wide drop-shadow-sm">
+                      {item.name}
+                    </p>
+                    <p className="text-sm text-gray-400 mt-1">
+                      Transforming the {item.name.toLowerCase()} industry with digital innovation.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>
