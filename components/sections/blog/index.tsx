@@ -36,16 +36,18 @@ const featuredBlogs: BlogCardProps[] = [
   },
   {
     id: 3,
-    title: "Building a Strong Brand Identity: Design Tips That Convert",
+    title: "Things to Keep in Mind When Choosing a Website Development Service",
     excerpt:
-      "Learn how to create a memorable brand identity that resonates with your audience and drives conversions.",
-    author: "Emily Chen",
-    date: "November 22, 2025",
-    readTime: "7 min read",
-    image: "/assets/industries/Fashion.jpg",
-    category: "Branding",
-    slug: "building-strong-brand-identity",
-  },
+      "In Pakistan's rapidly growing digital landscape, a website is no longer just an online presence—it is a business tool that influences credibility, customer trust, and long-term growth.",
+    author: "Nexaim Team",
+    date: "December 10, 2025",
+    readTime: "15 min read",
+    image: "/assets/industries/Technology.jpeg",
+    category: "Web Development",
+    slug: "choosing-website-development-service",
+    tags: ["Web Development", "Website Design", "Pakistan", "Business Growth"],
+  }
+
 ];
 
 const Blog = () => {

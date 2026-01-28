@@ -49,51 +49,11 @@ const allBlogs: BlogCardProps[] = [
     slug: "choosing-website-development-service",
     tags: ["Web Development", "Website Design", "Pakistan", "Business Growth"],
   },
-  {
-    id: 4,
-    title: "Building a Strong Brand Identity: Design Tips That Convert",
-    excerpt:
-      "Learn how to create a memorable brand identity that resonates with your audience and drives conversions.",
-    author: "Emily Chen",
-    date: "November 22, 2025",
-    readTime: "7 min read",
-    image: "/assets/industries/Fashion.jpg",
-    category: "Branding",
-    slug: "building-strong-brand-identity",
-    tags: ["Branding", "Design", "Marketing"],
-  },
 
-  {
-    id: 5,
-    title: "Social Media Marketing: A Complete Guide for 2025",
-    excerpt:
-      "Master social media marketing with our comprehensive guide covering the latest platforms, strategies, and best practices.",
-    author: "Michael Johnson",
-    date: "November 20, 2025",
-    readTime: "9 min read",
-    image: "/assets/industries/Startup.jpeg",
-    category: "Social Media",
-    slug: "social-media-marketing-guide-2025",
-    tags: ["Social Media", "Marketing", "Strategy"],
-  },
-
-  {
-    id: 6,
-    title: "Content Marketing Strategies That Drive Results",
-    excerpt:
-      "Learn proven content marketing strategies that help businesses attract, engage, and convert their target audience.",
-    author: "Lisa Anderson",
-    date: "November 16, 2025",
-    readTime: "7 min read",
-    image: "/assets/industries/Food.jpg",
-    category: "Content Marketing",
-    slug: "content-marketing-strategies",
-    tags: ["Content Marketing", "Strategy", "SEO"],
-  },
 
 ];
 
-const categories = ["All", "Digital Marketing", "SEO", "Branding", "Social Media", "Web Development", "Content Marketing"];
+const categories = ["All", "Digital Marketing", "SEO", "Web Development"];
 
 export default function BlogListingPage() {
   const fadeUp = {
