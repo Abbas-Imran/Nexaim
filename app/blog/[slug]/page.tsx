@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ButtonGradient from "@/components/svg/button-gradient";
+import WhatsAppButton from "@/components/layout/whatsapp-button";
 import { cn } from "@/lib/utils";
 
 // Blog data - in production, this would come from a CMS or API
@@ -910,6 +911,7 @@ export default function BlogDetailPage() {
             <Footer />
           </div>
           <ButtonGradient />
+          <WhatsAppButton />
         </body>
       </html>
     );

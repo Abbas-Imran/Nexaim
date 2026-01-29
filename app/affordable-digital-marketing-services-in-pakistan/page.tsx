@@ -6,6 +6,7 @@ import ServiceBenefits, { BenefitItem } from "@/components/sections/service-page
 import ServicesSectionDetails, { Service } from "@/components/sections/service-page/service-details";
 import ServiceHero from "@/components/sections/service-page/service-hero";
 import ButtonGradient from "@/components/svg/button-gradient";
+import WhatsAppButton from "@/components/layout/whatsapp-button";
 import { cn } from "@/lib/utils";
 import { images } from "@/constants";
 import { Metadata } from "next";
@@ -329,6 +330,7 @@ export default function Home() {
                         <Footer />
                     </div>
                     <ButtonGradient />
+                    <WhatsAppButton />
                 </main>
 
             </body>
