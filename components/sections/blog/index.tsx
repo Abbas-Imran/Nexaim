@@ -42,7 +42,7 @@ const featuredBlogs: BlogCardProps[] = [
     author: "Nexaim Team",
     date: "December 10, 2025",
     readTime: "15 min read",
-    image: "/assets/industries/Technology.jpeg",
+    image: "/assets/industries/website_development.jpg",
     category: "Web Development",
     slug: "choosing-website-development-service",
     tags: ["Web Development", "Website Design", "Pakistan", "Business Growth"],

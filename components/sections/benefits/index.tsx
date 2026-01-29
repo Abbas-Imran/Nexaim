@@ -147,7 +147,7 @@ const Benefits = () => {
                   )} */}
 
                   {/* Large White Uppercase Title */}
-                  <h4 className="text-xl md:text-2xl lg:text-[1.9rem] font-extrabold text-white uppercase tracking-wide mb-1 group-hover:text-[#B500A5] transition-colors duration-300 leading-tight">
+                  <h4 className="text-[1.7rem] md:text-2xl lg:text-[1.9rem] font-extrabold text-white uppercase tracking-wide mb-1 group-hover:text-[#B500A5] transition-colors duration-300 leading-tight">
                     {item.title}
                   </h4>
 

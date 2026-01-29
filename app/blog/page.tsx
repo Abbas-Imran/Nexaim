@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ButtonGradient from "@/components/svg/button-gradient";
+import WhatsAppButton from "@/components/layout/whatsapp-button";
 import { cn } from "@/lib/utils";
 import BlogListing from "@/components/sections/blog/BlogListing";
 import { BlogCardProps } from "@/components/sections/blog/BlogCard";
@@ -44,7 +45,7 @@ const allBlogs: BlogCardProps[] = [
     author: "Nexaim Team",
     date: "December 10, 2025",
     readTime: "15 min read",
-    image: "/assets/industries/Technology.jpeg",
+    image: "/assets/industries/website_development.jpg",
     category: "Web Development",
     slug: "choosing-website-development-service",
     tags: ["Web Development", "Website Design", "Pakistan", "Business Growth"],
@@ -117,6 +118,7 @@ export default function BlogListingPage() {
             <Footer />
           </div>
           <ButtonGradient />
+          <WhatsAppButton />
         </main>
       </body>
     </html>

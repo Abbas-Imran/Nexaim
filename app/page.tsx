@@ -12,6 +12,7 @@ import Services from "@/components/sections/services";
 import AboutUs from "@/components/sections/AboutUs";
 import Blog from "@/components/sections/blog";
 import ButtonGradient from "@/components/svg/button-gradient";
+import WhatsAppButton from "@/components/layout/whatsapp-button";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Script from "next/script";
@@ -270,6 +271,7 @@ export default function Home() {
             <Footer />
           </div>
           <ButtonGradient />
+          <WhatsAppButton />
         </main>
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
